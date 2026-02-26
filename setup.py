@@ -6,7 +6,7 @@ This package provides comprehensive tools for micromagnetic simulation
 analysis, focusing on nanomagnetic logic devices and cellular automata.
 
 Author: Meshal Alawein
-Email: meshal@berkeley.edu
+Email: contact@meshal.ai
 Institution: University of California, Berkeley
 License: MIT
 """
@@ -104,23 +104,16 @@ setup(
     
     # Author and contact information
     author='Meshal Alawein',
-    author_email='meshal@berkeley.edu',
+    author_email='contact@meshal.ai',
     maintainer='Meshal Alawein',
-    maintainer_email='meshal@berkeley.edu',
+    maintainer_email='contact@meshal.ai',
     
     # URLs and project information
-    url='https://github.com/alaweimm90/MagLogic',
-    download_url='https://github.com/alaweimm90/MagLogic/releases',
+    url='https://github.com/alawein/maglogic',
+    download_url='https://github.com/alawein/maglogic/releases',
     project_urls={
-        'Documentation': 'https://alaweimm90.github.io/MagLogic/',
-        'Source': 'https://github.com/alaweimm90/MagLogic',
-        'Website': 'https://malawein.com',
-        'LinkedIn': 'https://www.linkedin.com/in/meshal-alawein',
-        'Research': 'https://simcore.dev',
-        'Bug Reports': 'https://github.com/alaweimm90/MagLogic/issues',
-        'Feature Requests': 'https://github.com/alaweimm90/MagLogic/issues/new?template=feature_request.md',
-        'Research Group': 'https://physics.berkeley.edu/',
-        'Paper': 'https://doi.org/10.1109/LMAG.2019.2912398',
+        'Repository': 'https://github.com/alawein/maglogic',
+        'Bug Reports': 'https://github.com/alawein/maglogic/issues',
     },
     
     # Package configuration

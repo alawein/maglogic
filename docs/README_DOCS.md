@@ -48,4 +48,4 @@ nav:
 !!! note "Author Information"
     **Meshal Alawein**  
     University of California, Berkeley  
-    📧 [meshal@berkeley.edu](mailto:meshal@berkeley.edu)
+    📧 [contact@meshal.ai](mailto:contact@meshal.ai)

@@ -9,10 +9,10 @@ description = "Nanomagnetic Logic Simulation Suite for Computational Magnetism"
 readme = "README.md"
 license = {file = "LICENSE"}
 authors = [
-    {name = "Meshal Alawein", email = "meshal@berkeley.edu"},
+    {name = "Meshal Alawein", email = "contact@meshal.ai"},
 ]
 maintainers = [
-    {name = "Meshal Alawein", email = "meshal@berkeley.edu"},
+    {name = "Meshal Alawein", email = "contact@meshal.ai"},
 ]
 classifiers = [
     "Development Status :: 4 - Beta",
@@ -99,14 +99,10 @@ all = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/alaweimm90/MagLogic"
-Documentation = "https://alaweimm90.github.io/MagLogic/"
-Repository = "https://github.com/alaweimm90/MagLogic"
-Website = "https://malawein.com"
-LinkedIn = "https://www.linkedin.com/in/meshal-alawein"
-Research = "https://simcore.dev"
-"Bug Reports" = "https://github.com/alaweimm90/MagLogic/issues"
-"Research Paper" = "https://doi.org/10.1109/LMAG.2019.2912398"
+Homepage = "https://github.com/alawein/maglogic"
+Documentation = "https://github.com/alawein/maglogic/"
+Repository = "https://github.com/alawein/maglogic"
+"Bug Reports" = "https://github.com/alawein/maglogic/issues"
 
 [project.scripts]
 maglogic = "maglogic.cli:main"

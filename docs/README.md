@@ -193,10 +193,10 @@ Jupyter notebooks are automatically included in documentation using nbsphinx:
 Documentation is automatically deployed to GitHub Pages via GitHub Actions:
 - Triggered on pushes to main branch
 - Builds with latest Sphinx version
-- Deployed to: https://alaweimm90.github.io/MagLogic/
+- Deployed to: https://github.com/alawein/maglogic/
 
 ### Custom Domain
-Documentation is available at: https://maglogic.berkeley.edu
+Documentation is available at: https://github.com/alawein/maglogic
 
 ### Versioning
 Documentation versions correspond to software releases:
@@ -240,8 +240,8 @@ cd _build/latex && cat MagLogic.log
 
 ### Getting Help
 - Check the [troubleshooting guide](troubleshooting.rst)  
-- Search existing [issues](https://github.com/alaweimm90/MagLogic/issues)
-- Ask questions in [discussions](https://github.com/alaweimm90/MagLogic/discussions)
+- Search existing [issues](https://github.com/alawein/maglogic/issues)
+- Ask questions in [discussions](https://github.com/alawein/maglogic/discussions)
 
 ## License
 

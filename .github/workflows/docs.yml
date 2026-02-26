@@ -101,7 +101,7 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: docs/_build/html
-        cname: maglogic.berkeley.edu
+        cname: maglogic.meshal.ai
         user_name: 'github-actions[bot]'
         user_email: 'github-actions[bot]@users.noreply.github.com'
         commit_message: 'Deploy documentation: ${{ github.event.head_commit.message }}'

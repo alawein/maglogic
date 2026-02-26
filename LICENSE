@@ -1,6 +1,6 @@
 MIT License
 
-Copyright © 2025 Meshal Alawein — All rights reserved.
+Copyright (c) 2026 Meshal Alawein
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,25 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-Author: Meshal Alawein
-Email: meshal@berkeley.edu
-Institution: University of California, Berkeley
-Research Focus: Computational Physics & Materials Modeling
-
-This software was developed as part of research in nanomagnetic logic devices
-and computational micromagnetism at UC Berkeley. The work reproduces and extends
-results from published peer-reviewed research in the field of spintronics and
-magnetic computing devices.
-
-For academic use, please cite the original research papers:
-- M. Alawein et al., "Multistate nanomagnetic logic using equilateral permalloy 
-  triangles," IEEE Magnetics Letters, vol. 10, pp. 1-5, 2019.
-  DOI: 10.1109/LMAG.2019.2912398
-
-Third-party components included in this software are subject to their own licenses:
-- OOMMF: NIST Public License (https://math.nist.gov/oommf/LICENSE.html)
-- MuMax3: GPL v3 License (https://mumax.github.io/)
-- Scientific Python libraries: Various OSI-approved licenses (see requirements.txt)

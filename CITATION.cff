@@ -3,23 +3,16 @@ message: "If you use this software, please cite it as below."
 type: software
 title: "MagLogic: Nanomagnetic Logic Simulation Suite"
 abstract: >
-  MagLogic is a comprehensive computational framework for simulating and analyzing 
-  nanomagnetic logic devices. It provides integrated tools for micromagnetic 
-  simulations using OOMMF and MuMax3, advanced magnetization analysis, and 
-  specialized demonstrations of reconfigurable logic gates based on triangular 
+  MagLogic is a computational framework for simulating and analyzing
+  nanomagnetic logic devices. Provides integrated tools for micromagnetic
+  simulations using OOMMF and MuMax3, magnetization analysis, and
+  demonstrations of reconfigurable logic gates based on triangular
   nanomagnetic elements.
-
 authors:
   - family-names: "Alawein"
-    given-names: "Dr. Meshal"
-    email: "meshal@berkeley.edu"
-    affiliation: "University of California, Berkeley"
-    website: "https://malawein.com"
-
-repository-code: "https://github.com/alaweimm90/MagLogic"
-url: "https://maglogic.berkeley.edu"
-repository-artifact: "https://pypi.org/project/maglogic/"
-
+    given-names: "Meshal"
+    email: "contact@meshal.ai"
+repository-code: "https://github.com/alawein/maglogic"
 keywords:
   - "micromagnetism"
   - "nanomagnetic logic"
@@ -29,42 +22,26 @@ keywords:
   - "MuMax3"
   - "magnetic simulation"
   - "cellular automata"
-  - "beyond-CMOS"
-  - "UC Berkeley"
-
 license: MIT
-license-url: "https://github.com/alaweimm90/MagLogic/blob/main/LICENSE"
-
 version: "1.0.0"
 date-released: "2025-01-15"
-
 references:
   - type: article
-    title: "Reconfigurable Nanomagnetic Logic Gates Using Triangular Elements"
+    title: "Multistate nanomagnetic logic using equilateral permalloy triangles"
     authors:
-      - given-names: "Dr. Meshal"
+      - given-names: "Meshal"
         family-names: "Alawein"
     journal: "IEEE Magnetics Letters"
     volume: 10
     year: 2019
     doi: "10.1109/LMAG.2019.2912398"
-    
-  - type: conference-paper
-    title: "Cellular Automata Implementation of Nanomagnetic Logic"
-    authors:
-      - given-names: "Dr. Meshal"
-        family-names: "Alawein"
-    conference: "International Conference on Magnetism"
-    year: 2018
-    
 preferred-citation:
   type: software
   title: "MagLogic: Nanomagnetic Logic Simulation Suite"
   authors:
-    - given-names: "Dr. Meshal"
+    - given-names: "Meshal"
       family-names: "Alawein"
-      email: "meshal@berkeley.edu"
-      affiliation: "University of California, Berkeley"
+      email: "contact@meshal.ai"
   version: "1.0.0"
   year: 2025
-  url: "https://github.com/alaweimm90/MagLogic"
+  url: "https://github.com/alawein/maglogic"

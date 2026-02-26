@@ -40,7 +40,7 @@ git clone https://github.com/YOUR_USERNAME/MagLogic.git
 cd MagLogic
 
 # Add upstream remote
-git remote add upstream https://github.com/alaweimm90/MagLogic.git
+git remote add upstream https://github.com/alawein/maglogic.git
 ```
 
 ### 2. Environment Setup

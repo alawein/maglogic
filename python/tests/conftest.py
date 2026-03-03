@@ -9,6 +9,13 @@ Email: meshal@berkeley.edu
 License: MIT
 """
 
+import warnings
+
+# Suppress ImportWarning from maglogic.__init__ when optional visualization
+# modules (magnetization_plots) are not installed. This allows core module
+# tests to run without the full [all] extras.
+warnings.filterwarnings("ignore", category=ImportWarning, module=r"maglogic")
+
 import pytest
 import numpy as np
 import tempfile

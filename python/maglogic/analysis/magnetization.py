@@ -116,8 +116,8 @@ class MagnetizationAnalyzer:
             'domain_labels': domains,
             'domain_walls': domain_walls,
             'domain_statistics': domain_stats,
-            'average_domain_size': np.mean([stats['size'] for stats in domain_stats.values()]),
-            'domain_wall_density': np.sum(domain_walls) / domain_walls.size
+            'average_domain_size': float(np.mean([stats['size'] for stats in domain_stats.values()])) if domain_stats else 0.0,
+            'domain_wall_density': float(np.sum(domain_walls)) / domain_walls.size if domain_walls.size > 0 else 0.0
         }
         
         return results
@@ -300,10 +300,11 @@ class MagnetizationAnalyzer:
             domains = full_labels.reshape(theta.shape)
             
         except Exception:
-            # Fallback: simple threshold-based domains
+            # Fallback: simple threshold-based domains using theta (polar angle)
             domains = np.zeros_like(theta)
-            domains[mz > 0.5] = 1  # Up domains
-            domains[mz < -0.5] = 2  # Down domains
+            cos_theta = np.cos(theta)
+            domains[cos_theta > 0.5] = 1  # Up domains
+            domains[cos_theta < -0.5] = 2  # Down domains
         
         # Remove small domains
         for label in np.unique(domains):
@@ -314,16 +315,22 @@ class MagnetizationAnalyzer:
     
     def _detect_domain_walls(self, domains: np.ndarray) -> np.ndarray:
         """Detect domain walls as boundaries between domains."""
+        domains_f = domains.astype(float)
+
+        # Need at least 2 elements per axis for gradient; handle 1D case
+        if domains.ndim == 1 or any(s < 2 for s in domains.shape):
+            return np.zeros_like(domains, dtype=bool)
+
         # Calculate gradients to find boundaries
-        grad_x = np.abs(np.gradient(domains.astype(float), axis=-1))
-        grad_y = np.abs(np.gradient(domains.astype(float), axis=-2))
-        
-        if domains.ndim == 3:
-            grad_z = np.abs(np.gradient(domains.astype(float), axis=-3))
+        grad_x = np.abs(np.gradient(domains_f, axis=-1))
+        grad_y = np.abs(np.gradient(domains_f, axis=-2))
+
+        if domains.ndim == 3 and domains.shape[-3] >= 2:
+            grad_z = np.abs(np.gradient(domains_f, axis=-3))
             domain_walls = (grad_x + grad_y + grad_z) > 0.1
         else:
             domain_walls = (grad_x + grad_y) > 0.1
-        
+
         return domain_walls.astype(bool)
     
     def _calculate_domain_statistics(self, domains: np.ndarray, 
@@ -360,18 +367,26 @@ class MagnetizationAnalyzer:
                                  coordinates: Dict[str, np.ndarray]) -> np.ndarray:
         """Calculate exchange energy density."""
         A = self.material_params['A']
-        
+
+        # Need at least 2 elements to compute a gradient
+        if mx.size < 2 or any(s < 2 for s in mx.shape):
+            return np.zeros_like(mx)
+
         # Calculate gradients
         grad_mx = np.gradient(mx)
         grad_my = np.gradient(my)
         grad_mz = np.gradient(mz)
-        
+
         # Exchange energy density: A * |∇m|²
         exchange_energy = np.zeros_like(mx)
-        
-        for i, (gx, gy, gz) in enumerate(zip(grad_mx, grad_my, grad_mz)):
-            exchange_energy += A * (gx**2 + gy**2 + gz**2)
-        
+
+        # np.gradient returns a list of arrays for multi-dim, single array for 1D
+        if mx.ndim == 1:
+            exchange_energy = A * (grad_mx**2 + grad_my**2 + grad_mz**2)
+        else:
+            for gx, gy, gz in zip(grad_mx, grad_my, grad_mz):
+                exchange_energy += A * (gx**2 + gy**2 + gz**2)
+
         return exchange_energy
     
     def _calculate_demagnetization_energy(self, mx: np.ndarray, my: np.ndarray, mz: np.ndarray) -> np.ndarray:
@@ -412,28 +427,47 @@ class MagnetizationAnalyzer:
         mx_flat = mx.flatten()
         my_flat = my.flatten()
         mz_flat = mz.flatten()
-        
-        corr_xy = float(np.corrcoef(mx_flat, my_flat)[0, 1])
-        corr_xz = float(np.corrcoef(mx_flat, mz_flat)[0, 1])
-        corr_yz = float(np.corrcoef(my_flat, mz_flat)[0, 1])
-        
+
+        def _safe_corr(a: np.ndarray, b: np.ndarray) -> float:
+            """Return 0.0 for uniform arrays (zero std dev) instead of raising."""
+            with warnings.catch_warnings():
+                warnings.simplefilter('ignore', RuntimeWarning)
+                c = np.corrcoef(a, b)[0, 1]
+            return 0.0 if np.isnan(c) else float(c)
+
         return {
-            'mx_my_correlation': corr_xy if not np.isnan(corr_xy) else 0.0,
-            'mx_mz_correlation': corr_xz if not np.isnan(corr_xz) else 0.0,
-            'my_mz_correlation': corr_yz if not np.isnan(corr_yz) else 0.0
+            'mx_my_correlation': _safe_corr(mx_flat, my_flat),
+            'mx_mz_correlation': _safe_corr(mx_flat, mz_flat),
+            'my_mz_correlation': _safe_corr(my_flat, mz_flat)
         }
     
     def _calculate_gradients(self, mx: np.ndarray, my: np.ndarray, mz: np.ndarray) -> Dict[str, Any]:
         """Calculate gradient statistics."""
+        # Need at least 2 elements to compute gradient
+        if mx.size < 2 or any(s < 2 for s in mx.shape):
+            zeros = np.zeros_like(mx)
+            zero_stats = self._calculate_field_statistics(zeros)
+            return {
+                'mx_gradient_stats': zero_stats,
+                'my_gradient_stats': zero_stats,
+                'mz_gradient_stats': zero_stats,
+                'total_gradient_magnitude': 0.0
+            }
+
         grad_mx = np.gradient(mx)
         grad_my = np.gradient(my)
         grad_mz = np.gradient(mz)
-        
-        # Calculate gradient magnitudes
-        grad_mag_mx = np.sqrt(sum(g**2 for g in grad_mx))
-        grad_mag_my = np.sqrt(sum(g**2 for g in grad_my))
-        grad_mag_mz = np.sqrt(sum(g**2 for g in grad_mz))
-        
+
+        # np.gradient returns list for multi-dim, single array for 1D
+        if mx.ndim == 1:
+            grad_mag_mx = np.abs(grad_mx)
+            grad_mag_my = np.abs(grad_my)
+            grad_mag_mz = np.abs(grad_mz)
+        else:
+            grad_mag_mx = np.sqrt(sum(g**2 for g in grad_mx))
+            grad_mag_my = np.sqrt(sum(g**2 for g in grad_my))
+            grad_mag_mz = np.sqrt(sum(g**2 for g in grad_mz))
+
         return {
             'mx_gradient_stats': self._calculate_field_statistics(grad_mag_mx),
             'my_gradient_stats': self._calculate_field_statistics(grad_mag_my),
@@ -526,6 +560,10 @@ class MagnetizationAnalyzer:
     
     def _calculate_topological_charge(self, mx: np.ndarray, my: np.ndarray, mz: np.ndarray) -> np.ndarray:
         """Calculate topological charge density."""
+        # Need at least 2D data for topological charge
+        if mx.ndim < 2:
+            return np.zeros_like(mx)
+
         # Simplified calculation for 2D case
         if mx.ndim == 3:
             mx_2d = mx[mx.shape[0]//2, :, :]
@@ -533,16 +571,16 @@ class MagnetizationAnalyzer:
         else:
             mx_2d = mx
             my_2d = my
-        
+
         # Calculate derivatives
         dmx_dx = np.gradient(mx_2d, axis=1)
         dmx_dy = np.gradient(mx_2d, axis=0)
         dmy_dx = np.gradient(my_2d, axis=1)
         dmy_dy = np.gradient(my_2d, axis=0)
-        
+
         # Topological charge density
         charge_density = (dmx_dx * dmy_dy - dmx_dy * dmy_dx) / (4 * np.pi)
-        
+
         return charge_density
     
     def _detect_skyrmions(self, mx: np.ndarray, my: np.ndarray, mz: np.ndarray) -> Dict[str, Any]:
@@ -581,18 +619,31 @@ class MagnetizationAnalyzer:
     
     def _calculate_texture_metrics(self, mx: np.ndarray, my: np.ndarray, mz: np.ndarray) -> Dict[str, float]:
         """Calculate texture complexity metrics."""
+        # Need at least 2 elements for gradient
+        if mx.size < 2 or any(s < 2 for s in mx.shape):
+            angles = np.arctan2(my, mx)
+            return {
+                'roughness': 0.0,
+                'directionality': float(np.std(angles)),
+                'complexity_index': 0.0
+            }
+
         # Calculate local variations
         grad_mx = np.gradient(mx)
         grad_my = np.gradient(my)
         grad_mz = np.gradient(mz)
-        
-        # Texture roughness
-        roughness = np.mean([np.std(g) for g in grad_mx + grad_my + grad_mz])
-        
+
+        # Texture roughness — handle 1D (gradient returns array, not list)
+        if mx.ndim == 1:
+            all_grads = [grad_mx, grad_my, grad_mz]
+        else:
+            all_grads = grad_mx + grad_my + grad_mz
+        roughness = np.mean([np.std(g) for g in all_grads])
+
         # Texture directionality
         angles = np.arctan2(my, mx)
         angle_variation = np.std(angles)
-        
+
         return {
             'roughness': float(roughness),
             'directionality': float(angle_variation),
@@ -632,22 +683,34 @@ class MagnetizationAnalyzer:
         if mz.ndim >= 2:
             # Check for periodicity along one axis
             line = mz[mz.shape[0]//2, :] if mz.ndim == 2 else mz[mz.shape[0]//2, mz.shape[1]//2, :]
+
+            # Need at least 4 points for meaningful FFT analysis
+            if len(line) < 4:
+                return False
+
             fft = np.fft.fft(line)
             power = np.abs(fft)**2
-            
+
             # Look for dominant frequency components
-            max_power = np.max(power[1:len(power)//2])  # Exclude DC component
-            mean_power = np.mean(power[1:len(power)//2])
-            
-            return max_power > 5 * mean_power
-        
+            half = len(power) // 2
+            if half <= 1:
+                return False
+            max_power = np.max(power[1:half])  # Exclude DC component
+            mean_power = np.mean(power[1:half])
+
+            return bool(max_power > 5 * mean_power)
+
         return False
     
     def _check_flux_closure(self, mx: np.ndarray, my: np.ndarray, mz: np.ndarray) -> bool:
         """Check for flux closure patterns."""
+        # Need at least 2D with 2+ elements per axis
+        if mx.ndim < 2 or any(s < 2 for s in mx.shape):
+            return False
+
         # Calculate divergence of magnetization
         div_m = np.gradient(mx, axis=-1) + np.gradient(my, axis=-2)
-        if mx.ndim == 3:
+        if mx.ndim == 3 and mx.shape[-3] >= 2:
             div_m += np.gradient(mz, axis=-3)
         
         # Flux closure should have low divergence

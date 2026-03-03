@@ -363,8 +363,10 @@ class MuMax3Parser(BaseParser):
     
     def _clean_column_name(self, name: str) -> str:
         """Clean column name for dictionary key."""
-        # Remove special characters and replace with underscores
-        clean = re.sub(r'[^\w\s-]', '', str(name))
+        # Remove parenthesized unit annotations like (s), (J), ()
+        clean = re.sub(r'\s*\([^)]*\)', '', str(name)).strip()
+        # Remove remaining special characters and replace with underscores
+        clean = re.sub(r'[^\w\s-]', '', clean)
         clean = re.sub(r'[-\s]+', '_', clean)
         clean = clean.strip('_')
         
@@ -466,8 +468,8 @@ class MuMax3Parser(BaseParser):
         
         # Extract common parameters
         patterns = {
-            'Msat': r'Msat\s*=\s*([\d.e+-]+)',
-            'Aex': r'Aex\s*=\s*([\d.e+-]+)',
+            'Msat': r'(?:Msat|Ms)\s*=\s*([\d.e+-]+)',
+            'Aex': r'(?:Aex|A)\s*=\s*([\d.e+-]+)',
             'alpha': r'alpha\s*=\s*([\d.e+-]+)',
             'dt': r'dt\s*=\s*([\d.e+-]+)',
             'grid_size': r'SetGridSize\s*\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)',

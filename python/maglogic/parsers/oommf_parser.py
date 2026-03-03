@@ -459,9 +459,12 @@ class OOMMFParser(BaseParser):
                     content = line[1:].strip()
                     
                     if content.startswith('Columns:'):
-                        # Extract column names
+                        # Extract column names, stripping {unit} annotations
                         col_line = content[8:].strip()  # Remove 'Columns:'
-                        columns = col_line.split()
+                        # Remove {unit} tokens — they are not column names
+                        import re as _re
+                        col_line_clean = _re.sub(r'\{[^}]*\}', '', col_line)
+                        columns = col_line_clean.split()
                         header_info['columns'] = columns
                     
                     elif content.startswith('Units:'):

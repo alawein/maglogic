@@ -256,8 +256,8 @@ class TestMagnetizationAnalyzer:
         patterns = result['pattern_analysis']
         
         # Uniform magnetization should be detected as uniform state
-        assert patterns['uniform_state'] is True
-        assert patterns['vortex_state'] is False  # Should not detect vortices in uniform state
+        assert patterns['uniform_state'] == True
+        assert patterns['vortex_state'] == False  # Should not detect vortices in uniform state
     
     def test_analyze_ovf_file(self, analyzer, tmp_path):
         """Test complete OVF file analysis."""
@@ -539,8 +539,8 @@ class TestAnalysisIntegration:
         # Check that pattern recognition works
         texture_analysis = results['texture_analysis']
         patterns = texture_analysis['pattern_analysis']
-        assert patterns['vortex_state'] is True, "Should detect vortex pattern"
-        assert patterns['uniform_state'] is False, "Should not detect uniform state in vortex"
+        assert patterns['vortex_state'] == True, "Should detect vortex pattern"
+        assert patterns['uniform_state'] == False, "Should not detect uniform state in vortex"
         
         # Test visualization generation
         fig = analyzer.plot_magnetization_map(results, component='mz')

@@ -130,7 +130,7 @@ Schedule Oxs_MinDriver::Magnetization mags Stage 1
             with patch('pathlib.Path.exists', return_value=True):
                 runner = OOMMFRunner.__new__(OOMMFRunner)  # Create without calling __init__
                 path = runner._find_oommf_path()
-                assert path == '/env/oommf'
+                assert path == str(Path('/env/oommf'))
     
     def test_find_oommf_path_command(self):
         """Test OOMMF path detection from command in PATH."""

@@ -1,3 +1,10 @@
+---
+type: guide
+authority: canonical
+audience: [ai-agents, contributors]
+last-verified: 2026-03-03
+---
+
 # CLAUDE.md
 
 This file provides guidance to Claude Code (claude.ai/code) when working with
@@ -86,3 +93,6 @@ OOMMF and MuMax3 backends. Implements reconfigurable logic gate analysis
 - Do not modify simulation output files in `oommf/` or `mumax3/` directly
 - Update `CITATION.cff` for releases
 - Governance: Has `AGENTS.md` from Morphism framework
+
+## Governance
+See [AGENTS.md](AGENTS.md) for rules. See [SSOT.md](SSOT.md) for current state.

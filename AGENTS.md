@@ -53,3 +53,5 @@ gates) for triangular element geometries.
 - Classes: `PascalCase`
 - Functions: `snake_case`
 - Constants: `UPPER_SNAKE_CASE`
+
+See [CLAUDE.md](CLAUDE.md) | [SSOT.md](SSOT.md)

@@ -1,11 +1,11 @@
----
+﻿---
 type: normative
 authority: canonical
 audience: [agents, contributors, maintainers]
 last-verified: 2026-03-01
 ---
 
-# AGENTS -- maglogic
+# AGENTS — maglogic
 
 > Nanomagnetic logic simulation suite. Based on Alawein et al., IEEE Magnetics Letters 2019.
 

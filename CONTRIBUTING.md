@@ -1,6 +1,6 @@
 # Contributing to MagLogic
 
-Guidelines for contributing to MagLogic.
+This project follows the [alawein org contributing standards](https://github.com/alawein/alawein/blob/main/CONTRIBUTING.md). Guidelines for contributing to MagLogic.
 
 ## Table of Contents
 - [Code of Conduct](#code-of-conduct)

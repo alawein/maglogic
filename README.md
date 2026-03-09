@@ -3,7 +3,10 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 
-Python tools for simulating nanomagnetic logic devices using OOMMF and MuMax3 backends. Implements nanomagnetic logic simulations from Alawein et al. (IEEE Magnetics Letters, 2019) for triangular element logic gates and cellular automata.
+Python tools for simulating nanomagnetic logic devices using OOMMF and MuMax3
+backends. MagLogic implements nanomagnetic logic simulations from Alawein et
+al. (IEEE Magnetics Letters, 2019) for triangular element logic gates and
+cellular automata.
 
 ## Features
 
@@ -12,24 +15,43 @@ Python tools for simulating nanomagnetic logic devices using OOMMF and MuMax3 ba
 - Magnetization pattern analysis and domain structure detection
 - Energy landscape calculation and topological feature detection
 - Cross-platform Docker support
-- Automated truth table verification
+- Automated truth-table verification
 
 ## Installation
 
-### Docker (Recommended)
+### Docker
+
 ```bash
 git clone https://github.com/alawein/maglogic.git
 cd maglogic
-docker-compose up --build
+docker compose up --build
 ```
 
 ### Local
+
 ```bash
 conda env create -f environment.yml
 conda activate maglogic
-pip install -e .
-python examples/run_basic_triangle.py
+pip install -e ".[dev]"
+python scripts/validate-structure.py
+PYTHONPATH=python python -c "import maglogic"
 ```
+
+## Layout Model
+
+MagLogic intentionally uses a **language-boundary layout**:
+
+- `python/maglogic/` is the canonical Python package
+- `python/tests/` is the canonical Python test surface
+- `oommf/` and `mumax3/` hold simulation assets and reference inputs
+- `matlab/` holds MATLAB reference implementations
+- `docs/` holds repo-local documentation
+- `scripts/` holds repo-local validation and maintenance helpers
+
+This repo does **not** use `src/<package>` as its Python boundary.
+
+See [docs/architecture/STRUCTURE_DECISION.md](docs/architecture/STRUCTURE_DECISION.md)
+for the explicit structure decision.
 
 ## Usage
 
@@ -38,30 +60,48 @@ from maglogic.demos import demo_nand_nor
 
 # NAND mode (clock = +60 degrees)
 result_nand = demo_nand_nor.run_simulation(clock_angle=60, input_A=1, input_B=1)
-print(f"NAND(1,1) = {result_nand['logic_output']}")  # Expected: 0
+print(f"NAND(1,1) = {result_nand['logic_output']}")
 
-# Generate complete truth table
+# Generate a complete truth table
 truth_table = demo_nand_nor.generate_truth_table()
 ```
 
 ## Project Structure
 
-```
+```text
 maglogic/
-├── python/        # Python package (core, parsers, analysis, visualization)
-├── matlab/        # MATLAB implementations
-├── oommf/         # OOMMF simulation files
-├── mumax3/        # MuMax3 simulation files
-├── examples/      # Demo scripts and notebooks
-├── docker/        # Docker configuration
-└── docs/          # Documentation
+├── python/
+│   ├── maglogic/       # Canonical Python package
+│   └── tests/          # Python test suite
+├── matlab/             # MATLAB reference implementations
+├── oommf/              # OOMMF simulation files
+├── mumax3/             # MuMax3 simulation files
+├── examples/           # Demo scripts and notebooks
+├── docker/             # Docker configuration
+├── docs/               # Documentation
+│   └── architecture/   # Structure decisions
+└── scripts/            # Repo-local validation and maintenance helpers
 ```
 
-## Testing
+## Validation
 
 ```bash
-pytest --cov=maglogic --cov-report=html
+python scripts/validate-structure.py
+PYTHONPATH=python python -c "import maglogic"
 ```
+
+Representative tests, when dependencies are installed:
+
+```bash
+PYTHONPATH=python python -m pytest -s python/tests/test_constants.py python/tests/test_analysis.py
+```
+
+## Documentation
+
+- [docs/README.md](docs/README.md)
+- [docs/api.md](docs/api.md)
+- [docs/theory.md](docs/theory.md)
+- [docs/architecture/STRUCTURE_DECISION.md](docs/architecture/STRUCTURE_DECISION.md)
 
 ## Citation
 
@@ -79,11 +119,4 @@ pytest --cov=maglogic --cov-report=html
 
 ## License
 
-MIT License -- see [LICENSE](LICENSE).
-
-## Author
-
-**Meshal Alawein**
-- Email: [contact@meshal.ai](mailto:contact@meshal.ai)
-- GitHub: [github.com/alawein](https://github.com/alawein)
-- LinkedIn: [linkedin.com/in/alawein](https://linkedin.com/in/alawein)
+MIT License. See [LICENSE](LICENSE).

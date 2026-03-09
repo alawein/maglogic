@@ -7,36 +7,48 @@ last-verified: 2026-03-09
 
 # SSOT — maglogic
 
-**Version:** 1.0
-**Last Updated:** 2026-03-03
-**Status:** Active Research
-
----
+**Status:** Active research
 
 ## Purpose
 
-MagLogic — Nanomagnetic Logic Simulation Suite. Computational magnetism research library based on Alawein et al., IEEE Magnetics Letters 2019.
+MagLogic is the canonical nanomagnetic logic simulation suite for the Alawein
+2019 IEEE Magnetics Letters workflow and follow-on analysis.
 
 ## Current State
 
-- Python research library: Active
-- Based on published research (IEEE Magnetics Letters 2019)
+- Python research library: active
+- MATLAB reference surface: active
+- OOMMF and MuMax3 assets: active
+- Docker and environment setup: active
 
-## Structure
+## Canonical Layout
 
-```
-maglogic/
-├── src/          # Python source
-├── CLAUDE.md     # Agent config
-├── AGENTS.md     # Governance rules
-└── SSOT.md       # This file
-```
+MagLogic uses a language-boundary repo layout.
 
-## What's Next
+| Surface | Role |
+|---------|------|
+| `python/maglogic/` | Canonical Python package |
+| `python/tests/` | Canonical Python test surface |
+| `matlab/` | MATLAB reference implementations |
+| `oommf/` | OOMMF simulation inputs and assets |
+| `mumax3/` | MuMax3 simulation inputs and assets |
+| `examples/` | Demo and exploratory usage |
+| `docker/` | Containerization surface |
+| `docs/` | Repo-local documentation |
+| `scripts/` | Repo-local validation and maintenance helpers |
 
-- See CLAUDE.md Quick Start for development commands
+This repository does **not** use `src/` as its Python package boundary.
 
----
+See [docs/architecture/STRUCTURE_DECISION.md](docs/architecture/STRUCTURE_DECISION.md)
+for the explicit structure decision.
 
-_Governed by: [AGENTS.md](AGENTS.md)_
+## Governance Documents
+
+| Document | Purpose |
+|----------|---------|
+| [AGENTS.md](AGENTS.md) | Root contributor and agent rules |
+| [CLAUDE.md](CLAUDE.md) | Repo-specific engineering guidance |
+| [README.md](README.md) | User-facing overview and usage |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | Contribution workflow |
+
 See [CLAUDE.md](CLAUDE.md) | [AGENTS.md](AGENTS.md)

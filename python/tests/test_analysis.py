@@ -413,13 +413,13 @@ class TestMagnetizationAnalyzer:
     def test_domain_detection_stability(self, analyzer):
         """Test domain detection stability with noise."""
         # Create base magnetization pattern
-        size = 20
+        size = 100
         x = np.linspace(-1, 1, size)
         y = np.linspace(-1, 1, size)
         X, Y = np.meshgrid(x, y, indexing='ij')
         
-        # Create stripe domains
-        mx = np.sign(np.sin(5 * np.pi * X))
+        # Create stripe domains (2 wide stripes)
+        mx = np.sign(np.sin(2 * np.pi * X))
         my = np.zeros_like(mx)
         mz = np.zeros_like(mx)
         

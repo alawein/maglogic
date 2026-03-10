@@ -175,8 +175,18 @@ class OOMMFRunner:
                          parameters: Optional[Dict[str, Any]], 
                          sim_dir: Path) -> Path:
         """Prepare MIF file with parameter substitution."""
-        # Determine if input is file path or content
-        if isinstance(mif_input, (str, Path)) and Path(mif_input).exists():
+        # Determine if input is file path or content.
+        # Guard against passing MIF content strings to Path().exists()
+        # which raises OSError ENAMETOOLONG on long strings.
+        is_file = isinstance(mif_input, Path) and mif_input.exists()
+        if not is_file and isinstance(mif_input, str):
+            if '\n' not in mif_input and len(mif_input) < 1024:
+                try:
+                    is_file = Path(mif_input).exists()
+                except OSError:
+                    is_file = False
+
+        if is_file:
             # Read from file
             mif_path = Path(mif_input)
             with open(mif_path, 'r') as f:

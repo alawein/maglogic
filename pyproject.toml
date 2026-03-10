@@ -62,6 +62,7 @@ dev = [
     "pytest-cov>=2.12.0",
     "pytest-mock>=3.6.0",
     "pytest-xdist>=2.3.0",
+    "pytest-benchmark>=3.4.0",
     "black>=21.0.0",
     "flake8>=3.9.0",
     "mypy>=0.910",
@@ -216,6 +217,8 @@ omit = [
     "*/test_*.py",
     "*/__init__.py",
     "*/setup.py",
+    "*/visualization/*",
+    "*/demos/*",
 ]
 
 [tool.coverage.report]

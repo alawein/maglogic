@@ -3,6 +3,9 @@
 
 # Claude Code assistant files
 .claude/
+!.claude/settings.json
+!.claude/hooks/
+!.claude/hooks/**
 
 # Python
 __pycache__/

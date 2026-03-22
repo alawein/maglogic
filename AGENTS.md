@@ -1,3 +1,4 @@
+<!-- CUSTOM OVERRIDE: entire file — domain-specific normative governance for polyglot nanomagnetic logic simulation suite [Task 1.4 audit 2026-03-22] -->
 ---
 type: normative
 authority: canonical

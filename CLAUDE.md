@@ -1,3 +1,4 @@
+<!-- CUSTOM OVERRIDE: entire file — polyglot nanomagnetic logic research suite with OOMMF/MuMax3/MATLAB/Python surfaces [Task 1.4 audit 2026-03-22] -->
 ---
 type: guide
 authority: canonical

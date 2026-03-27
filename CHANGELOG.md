@@ -1,3 +1,10 @@
+---
+type: canonical
+source: none
+sync: none
+sla: none
+---
+
 # Changelog
 
 All notable changes to MagLogic will be documented here.

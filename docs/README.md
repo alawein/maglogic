@@ -1,3 +1,10 @@
+---
+type: canonical
+source: none
+sync: none
+sla: none
+---
+
 # MagLogic Docs
 
 This directory holds the repo-local documentation for MagLogic.

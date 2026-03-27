@@ -1,3 +1,10 @@
+---
+type: canonical
+source: none
+sync: none
+sla: none
+---
+
 # MagLogic Documentation
 
 !!! info "Documentation Platform Version"

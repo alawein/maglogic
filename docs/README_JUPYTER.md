@@ -1,4 +1,8 @@
----
+---type: canonical
+source: none
+sync: none
+sla: none
+
 jupytext:
   text_representation:
     extension: .md

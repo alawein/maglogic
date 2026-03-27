@@ -3,6 +3,7 @@
 
 # Claude Code assistant files
 .claude/
+!.claude/CLAUDE.md
 !.claude/settings.json
 !.claude/hooks/
 !.claude/hooks/**

@@ -1,8 +1,8 @@
 ---
-type: canonical
-source: none
-sync: none
-sla: none
+type: generated
+source: ../README.md
+sync: script
+sla: on-change
 ---
 
 # Generated reports

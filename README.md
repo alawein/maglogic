@@ -127,3 +127,8 @@ PYTHONPATH=python python -m pytest -s python/tests/test_constants.py python/test
 ## License
 
 MIT License. See [LICENSE](LICENSE).
+
+## Ownership
+
+- **Maintainer:** @alawein
+- **Support:** GitHub Issues on this repository

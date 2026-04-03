@@ -1,66 +1,61 @@
 ---
 type: canonical
-source: none
-sync: none
+source: _devkit/templates
+sync: propagated
 sla: none
 ---
 
-# Contributing to MagLogic
+<!-- Token legend:
+     AUTO-SUBSTITUTED by sync-contributing.sh (derived from git remote):
+       maglogic = GitHub slug used as heading (e.g. "bolts", "handshake-hai")
+       maglogic      = GitHub slug used in URLs  (e.g. "bolts", "handshake-hai")
+     MANUALLY FILLED in Plan 2 per-repo pass:
+       {INSTALL_COMMAND}  = e.g. "npm ci" or "uv pip install -e ."
+       {TEST_COMMAND}     = e.g. "npm test" or "pytest"
+       {VALIDATE_COMMAND} = e.g. "npm run lint && npm test" or "ruff check . && pytest"
+-->
 
-This project follows the [alawein org contributing standards](https://github.com/alawein/alawein/blob/main/CONTRIBUTING.md)
-and the local repository rules in [AGENTS.md](AGENTS.md).
+# Contributing to maglogic
 
-## Quick Start
+<!-- REPO-SPECIFIC: one-line context about what this repo is -->
+
+This project follows the [alawein org contributing standards](https://github.com/alawein/alawein/blob/main/CONTRIBUTING.md).
+
+## Getting Started
 
 ```bash
 git clone https://github.com/alawein/maglogic.git
 cd maglogic
-pip install -e ".[dev]"
-python scripts/validate-structure.py
-PYTHONPATH=python python -c "import maglogic"
+{INSTALL_COMMAND}
 ```
 
-If you prefer Conda:
+## Development Workflow
 
-```bash
-conda env create -f environment.yml
-conda activate maglogic
-```
+1. Branch off `main` using prefix: `feat/`, `fix/`, `docs/`, `chore/`, `test/`
+2. Make your changes — keep PRs focused on a single concern
+3. Run `{TEST_COMMAND}` to validate your changes before committing
+4. Commit using [Conventional Commits](https://www.conventionalcommits.org/) — `type(scope): subject`
+5. Open a Pull Request to `main`
 
-## Workflow
+## Code Standards
 
-1. Branch from `main`.
-2. Make the smallest coherent change.
-3. Update docs when layout, simulation workflow, or package boundaries change.
-4. Run the repo validation commands before proposing the change.
+<!-- REPO-SPECIFIC: 2-4 bullets about this repo's conventions -->
+- Follow existing patterns in the codebase
+- Run linting and type checks before committing
+- Write tests for new functionality
 
-## Validation
+## Pull Request Checklist
 
-```bash
-python scripts/validate-structure.py
-PYTHONPATH=python python -c "import maglogic"
-```
+- [ ] CI passes (no failing checks)
+- [ ] Tests added or updated for new functionality
+- [ ] `{VALIDATE_COMMAND}` passes
+- [ ] `CHANGELOG.md` updated under `[Unreleased]`
+- [ ] No breaking changes without a version bump plan
 
-Representative tests, when dependencies are installed:
+## Reporting Issues
 
-```bash
-PYTHONPATH=python python -m pytest -s python/tests/test_constants.py python/tests/test_analysis.py
-```
+Open an issue on the [GitHub repository](https://github.com/alawein/maglogic/issues) with steps to reproduce and relevant context.
 
-## Structure Rules
+## License
 
-- Keep the Python package under `python/maglogic/`.
-- Keep Python tests under `python/tests/`.
-- Keep OOMMF assets under `oommf/`.
-- Keep MuMax3 assets under `mumax3/`.
-- Keep MATLAB reference implementations under `matlab/`.
-- Do not introduce `src/` without an explicit migration decision.
-
-## Documentation
-
-See:
-
-- [README.md](README.md)
-- [SSOT.md](SSOT.md)
-- [docs/README.md](docs/README.md)
-- [docs/architecture/STRUCTURE_DECISION.md](docs/architecture/STRUCTURE_DECISION.md)
+By contributing, you agree that your contributions will be licensed under [MIT](LICENSE).

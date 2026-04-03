@@ -10,10 +10,9 @@ sla: none
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 
-Python tools for simulating nanomagnetic logic devices using OOMMF and MuMax3
-backends. MagLogic implements nanomagnetic logic simulations from Alawein et
-al. (IEEE Magnetics Letters, 2019) for triangular element logic gates and
-cellular automata.
+## About
+
+Python tools for simulating nanomagnetic logic devices using OOMMF and MuMax3 backends. Implements nanomagnetic logic simulations from Alawein et al. (IEEE Magnetics Letters, 2019) for triangular element logic gates and cellular automata—designed for reproducible research and teaching.
 
 ## Features
 
@@ -44,6 +43,18 @@ python scripts/validate-structure.py
 PYTHONPATH=python python -c "import maglogic"
 ```
 
+## Quick Usage
+
+```bash
+PYTHONPATH=python python examples/demo_truth_table.py
+```
+
+```python
+from maglogic.demos import demo_nand_nor
+result = demo_nand_nor.generate_truth_table()
+print(result["truth_table"])
+```
+
 ## Layout Model
 
 MagLogic intentionally uses a **language-boundary layout**:
@@ -59,6 +70,18 @@ This repo does **not** use `src/<package>` as its Python boundary.
 
 See [docs/architecture/STRUCTURE_DECISION.md](docs/architecture/STRUCTURE_DECISION.md)
 for the explicit structure decision.
+
+## Roadmap
+
+- **Near term:** modernize OOMMF/MuMax3 docker images, add reproducible seeds for demos.
+- **Mid term:** expand majority-gate library and energy landscape visualizations.
+- **Future:** add JAX-backed differentiable simulators and more CA examples.
+
+## TODO
+
+- [ ] Add CLI entry for batch truth-table generation
+- [ ] Provide minimal sample datasets for MuMax3 without large downloads
+- [ ] Write quickstart notebook in `examples/`
 
 ## Usage
 
@@ -131,4 +154,4 @@ MIT License. See [LICENSE](LICENSE).
 ## Ownership
 
 - **Maintainer:** @alawein
-- **Support:** GitHub Issues on this repository
+- **Support:** [GitHub Issues](https://github.com/alawein/maglogic/issues)

@@ -5,19 +5,9 @@ sync: propagated
 sla: none
 ---
 
-<!-- Token legend:
-     AUTO-SUBSTITUTED by sync-contributing.sh (derived from git remote):
-       maglogic = GitHub slug used as heading (e.g. "bolts", "handshake-hai")
-       maglogic      = GitHub slug used in URLs  (e.g. "bolts", "handshake-hai")
-     MANUALLY FILLED in Plan 2 per-repo pass:
-       {INSTALL_COMMAND}  = e.g. "npm ci" or "uv pip install -e ."
-       {TEST_COMMAND}     = e.g. "npm test" or "pytest"
-       {VALIDATE_COMMAND} = e.g. "npm run lint && npm test" or "ruff check . && pytest"
--->
-
 # Contributing to maglogic
 
-<!-- REPO-SPECIFIC: one-line context about what this repo is -->
+Nanomagnetic logic simulation suite -- Python, MATLAB, OOMMF, MuMax3.
 
 This project follows the [alawein org contributing standards](https://github.com/alawein/alawein/blob/main/CONTRIBUTING.md).
 
@@ -26,29 +16,28 @@ This project follows the [alawein org contributing standards](https://github.com
 ```bash
 git clone https://github.com/alawein/maglogic.git
 cd maglogic
-{INSTALL_COMMAND}
+pip install -e ".[dev]"
 ```
 
 ## Development Workflow
 
 1. Branch off `main` using prefix: `feat/`, `fix/`, `docs/`, `chore/`, `test/`
 2. Make your changes — keep PRs focused on a single concern
-3. Run `{TEST_COMMAND}` to validate your changes before committing
+3. Run `PYTHONPATH=python python -m pytest -s python/tests/` to validate your changes before committing
 4. Commit using [Conventional Commits](https://www.conventionalcommits.org/) — `type(scope): subject`
 5. Open a Pull Request to `main`
 
 ## Code Standards
 
-<!-- REPO-SPECIFIC: 2-4 bullets about this repo's conventions -->
-- Follow existing patterns in the codebase
-- Run linting and type checks before committing
-- Write tests for new functionality
+- Python package at `python/maglogic/` (not `src/`)
+- Guard heavy scientific dependencies with conditional imports
+- Do not modify reference simulation assets in `oommf/` and `mumax3/`
 
 ## Pull Request Checklist
 
 - [ ] CI passes (no failing checks)
 - [ ] Tests added or updated for new functionality
-- [ ] `{VALIDATE_COMMAND}` passes
+- [ ] `python scripts/validate-structure.py && PYTHONPATH=python python -m pytest -s python/tests/` passes
 - [ ] `CHANGELOG.md` updated under `[Unreleased]`
 - [ ] No breaking changes without a version bump plan
 

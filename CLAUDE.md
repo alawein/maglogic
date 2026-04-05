@@ -1,26 +1,27 @@
 ---
-- **Build: ** setuptools via `pyproject.toml`
-- **Conda: ** `environment.yml` for conda-based setup
-- **Core deps: ** NumPy, SciPy, Matplotlib (Python surface)
+type: canonical
+source: none
+sync: none
+sla: none
+authority: canonical
+audience: [ai-agents, contributors]
+last-verified: 2026-03-09
+---
+
+<!-- Domain-Specific Rules -->
+- **Build:** setuptools via `pyproject.toml`
+- **Conda:** `environment.yml` for conda-based setup
+- **Core deps:** NumPy, SciPy, Matplotlib (Python surface)
 - **Do not modify simulation reference assets casually**: OOMMF `.mif` and MuMax3 `.mx3` input files are reference data
-- **Docker: ** Container definitions available for reproducible environments
+- **Docker:** Container definitions available for reproducible environments
 - **GPU code must include CPU fallback**: Never assume GPU availability
-- **Language: ** Python 3.9+ (canonical package), MATLAB, OOMMF, MuMax3
-- **Linting: ** black, flake8, ruff, mypy
-- **Micromagnetic engines: ** OOMMF (CPU), MuMax3 (GPU)
+- **Language:** Python 3.9+ (canonical package), MATLAB, OOMMF, MuMax3
+- **Linting:** black, flake8, ruff, mypy
+- **Micromagnetic engines:** OOMMF (CPU), MuMax3 (GPU)
 - **No parallel `src/` tree**: Canonical Python package lives at `python/maglogic/`; do not restructure without explicit migration decision
 - **OOMMF and MuMax3 are first-class surfaces**: Simulation assets in `oommf/` and `mumax3/` are not secondary to Python
 - **Support both OOMMF and MuMax3 backends**: Where applicable, features should work with both micromagnetic engines
-- **Testing: ** pytest (Python), MATLAB `runtests`
-<!-- EXTENSION SLOT: Domain-Specific Rules
-audience: [ai-agents, contributors]
-authority: canonical
-last-verified: 2026-03-09
-sla: none
-source: none
-sync: none
-type: guide
----
+- **Testing:** pytest (Python), MATLAB `runtests`
 
 <!-- Template: research-library v1.0.0 -->
 <!-- Generated from _pkos governance templates. Do not edit the template sections -->

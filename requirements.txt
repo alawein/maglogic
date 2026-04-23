@@ -67,7 +67,7 @@ colorama>=0.4.0,<1.0.0       # Cross-platform colored terminal text
 
 # Specialized scientific packages
 sympy>=1.8.0,<2.0.0          # Symbolic mathematics
-networkx>=2.6.0,<4.0.0       # Graph theory and network analysis
+networkx>=3.2.1,<4.0.0       # Graph theory and network analysis
 astropy>=4.3.0,<7.0.0        # Astronomy and astrophysics tools
 lmfit>=1.0.0,<2.0.0          # Non-linear least-squares fitting
 

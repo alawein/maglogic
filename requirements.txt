@@ -69,7 +69,7 @@ colorama>=0.4.6,<1.0.0       # Cross-platform colored terminal text
 sympy>=1.8.0,<2.0.0          # Symbolic mathematics
 networkx>=3.2.1,<4.0.0       # Graph theory and network analysis
 astropy>=4.3.0,<7.0.0        # Astronomy and astrophysics tools
-lmfit>=1.0.0,<2.0.0          # Non-linear least-squares fitting
+lmfit>=1.3.4,<2.0.0          # Non-linear least-squares fitting
 
 # Additional utilities for micromagnetism
 vtk>=9.0.0,<10.0.0           # Visualization Toolkit

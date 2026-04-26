@@ -88,5 +88,5 @@ psutil>=5.8.0,<6.0.0         # System and process utilities
 
 # Version constraints for stability
 setuptools>=45.0.0           # Package development tools
-wheel>=0.36.0                # Python wheel packaging standard
+wheel>=0.47.0                # Python wheel packaging standard
 pip>=21.0.0                  # Package installer

@@ -62,13 +62,13 @@ MagLogic intentionally uses a **language-boundary layout**:
 This repo does **not** use `src/<package>` as its Python boundary.
 
 See [docs/architecture/STRUCTURE_DECISION.md](docs/architecture/STRUCTURE_DECISION.md)
-for the explicit structure decision.
+for the canonical structure decision.
 
 ## Roadmap
 
 - **Near term:** modernize OOMMF/MuMax3 docker images, add reproducible seeds for demos.
 - **Mid term:** expand majority-gate library and energy landscape visualizations.
-- **Future:** add JAX-backed differentiable differentiable simulators and more CA examples.
+- **Future:** add JAX-backed differentiable simulators and more CA examples.
 
 ## Usage
 

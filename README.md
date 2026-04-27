@@ -1,10 +1,3 @@
----
-type: canonical
-source: none
-sync: none
-sla: none
----
-
 # MagLogic
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -75,13 +68,7 @@ for the explicit structure decision.
 
 - **Near term:** modernize OOMMF/MuMax3 docker images, add reproducible seeds for demos.
 - **Mid term:** expand majority-gate library and energy landscape visualizations.
-- **Future:** add JAX-backed differentiable simulators and more CA examples.
-
-## TODO
-
-- [ ] Add CLI entry for batch truth-table generation
-- [ ] Provide minimal sample datasets for MuMax3 without large downloads
-- [ ] Write quickstart notebook in `examples/`
+- **Future:** add JAX-backed differentiable differentiable simulators and more CA examples.
 
 ## Usage
 

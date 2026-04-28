@@ -10,7 +10,7 @@ FROM nvidia/cuda:11.8-devel-ubuntu22.04
 LABEL maintainer="Meshal Alawein <meshal@berkeley.edu>"
 LABEL description="MuMax3 simulation environment for MagLogic nanomagnetic logic simulations"
 LABEL version="1.0.0"
-LABEL repository="https://github.com/alaweimm90/MagLogic"
+LABEL repository="https://github.com/alawein/maglogic"
 
 # Environment variables
 ENV DEBIAN_FRONTEND=noninteractive

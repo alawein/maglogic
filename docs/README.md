@@ -1,20 +1,22 @@
----
-type: derived
-source: ../README.md
-sync: manual
-sla: manual
----
+# Docs
 
-# MagLogic Docs
+This lane holds MagLogic's theory notes, Python API surface, architecture
+decisions, and the operational material needed to run the polyglot stack
+cleanly.
 
-This directory holds the repo-local documentation for MagLogic.
+## Start here
 
-## Primary Guides
+- [theory.md](theory.md) for the micromagnetic and logic context.
+- [api.md](api.md) for the Python package surface.
+- [usage.md](usage.md) for workflows, demos, and expected entry points.
+- [architecture/STRUCTURE_DECISION.md](architecture/STRUCTURE_DECISION.md) and
+  [architecture.md](architecture.md) for repository and package boundaries.
+- `operations/` for sync and runbook material.
+- [troubleshooting.md](troubleshooting.md) for recurring runtime problems.
+- [INDEX.md](INDEX.md) for the derived document map.
 
-- [api.md](./api.md) — API and package reference
-- [theory.md](./theory.md) — theory and research context
+## Notes
 
-## Structure
-
-- [STRUCTURE_DECISION.md](./architecture/STRUCTURE_DECISION.md) — canonical
-  `python/maglogic` layout decision
+- `README_JUPYTER.md` documents the notebook workflow.
+- Keep the docs aligned with the actual `python/maglogic/` package boundary and
+  the solver assets that sit outside it.

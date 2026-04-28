@@ -10,7 +10,7 @@ FROM python:3.11-slim-bullseye
 LABEL maintainer="Meshal Alawein <meshal@berkeley.edu>"
 LABEL description="Python analysis environment for MagLogic nanomagnetic simulations"
 LABEL version="1.0.0"
-LABEL repository="https://github.com/alaweimm90/MagLogic"
+LABEL repository="https://github.com/alawein/maglogic"
 
 # Environment variables
 ENV DEBIAN_FRONTEND=noninteractive
@@ -820,7 +820,7 @@ RUN cat > /workspace/notebooks/MagLogic_Analysis_Tutorial.ipynb << 'EOF'
     "4. **Visualization**: Explore interactive plotting with Plotly\n",
     "5. **Machine Learning**: Apply ML techniques to classify magnetic states\n",
     "\n",
-    "For more information, visit: [MagLogic Documentation](https://alaweimm90.github.io/MagLogic/)"
+    "For more information, visit: [MagLogic Documentation](https://github.com/alawein/maglogic/tree/main/docs)"
    ]
   }
  ],

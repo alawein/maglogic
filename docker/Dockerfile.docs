@@ -10,7 +10,7 @@ FROM python:3.11-slim-bullseye
 LABEL maintainer="Meshal Alawein <meshal@berkeley.edu>"
 LABEL description="Documentation environment for MagLogic project"
 LABEL version="1.0.0"
-LABEL repository="https://github.com/alaweimm90/MagLogic"
+LABEL repository="https://github.com/alawein/maglogic"
 
 # Environment variables
 ENV DEBIAN_FRONTEND=noninteractive
@@ -164,7 +164,7 @@ html_css_files = [
 # HTML context
 html_context = {
     'display_github': True,
-    'github_user': 'alaweimm90',
+    'github_user': 'alawein',
     'github_repo': 'MagLogic',
     'github_version': 'main',
     'conf_py_path': '/docs/',
@@ -329,7 +329,7 @@ If you use MagLogic in your research, please cite:
      author={Alawein, Meshal},
      year={2024},
      institution={University of California, Berkeley},
-     url={https://github.com/alaweimm90/MagLogic}
+     url={https://github.com/alawein/maglogic}
    }
 
 Indices and tables
@@ -391,7 +391,7 @@ Clone and install from source:
 
 .. code-block:: bash
 
-   git clone https://github.com/alaweimm90/MagLogic.git
+   git clone https://github.com/alawein/maglogic.git
    cd MagLogic
    pip install -e python/
 

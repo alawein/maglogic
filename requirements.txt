@@ -40,7 +40,7 @@ tkinter-page>=0.1.0           # Tkinter page layout tool
 PyQt5>=5.15.0,<6.0.0         # Cross-platform GUI toolkit
 
 # Performance and parallel computing
-numba>=0.54.0,<1.0.0         # JIT compiler for numerical functions
+numba>=0.60.0,<1.0.0         # JIT compiler for numerical functions
 dask>=2021.6.0,<2025.0.0     # Parallel computing with task scheduling
 mpi4py>=3.1.0,<4.0.0         # MPI for Python parallel computing
 

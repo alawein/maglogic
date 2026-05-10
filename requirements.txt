@@ -20,7 +20,7 @@ jupyter>=1.0.0,<2.0.0         # Jupyter metapackage
 jupyterlab>=4.5.7,<5.0.0      # Modern Jupyter interface
 notebook>=7.5.5,<8.0.0        # Classic Jupyter notebook
 ipywidgets>=7.6.0,<9.0.0      # Interactive widgets
-ipympl>=0.8.0,<1.0.0          # Matplotlib Jupyter integration
+ipympl>=0.10.0,<1.0.0          # Matplotlib Jupyter integration
 
 # File I/O and data formats
 h5py>=3.2.0,<4.0.0            # HDF5 file format support

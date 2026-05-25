@@ -11,9 +11,8 @@ License: MIT
 
 import pytest
 import numpy as np
-from unittest.mock import Mock, patch, MagicMock
+from unittest.mock import patch
 
-from maglogic.core.constants import PHYSICAL_CONSTANTS
 
 
 class TestMagnetizationAnalyzerInit:
@@ -53,7 +52,7 @@ class TestMagnetizationAnalyzerInit:
         with patch("maglogic.analysis.magnetization.OOMMFParser") as mock_oommf, \
              patch("maglogic.analysis.magnetization.MuMax3Parser") as mock_mumax:
             from maglogic.analysis.magnetization import MagnetizationAnalyzer
-            analyzer = MagnetizationAnalyzer()
+            MagnetizationAnalyzer()
             mock_oommf.assert_called_once_with(verbose=False)
             mock_mumax.assert_called_once_with(verbose=False)
 

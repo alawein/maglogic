@@ -125,6 +125,30 @@ maglogic = [
     "schemas/*.json",
 ]
 
+# Ruff lint configuration (house "ruff check ." gate)
+[tool.ruff]
+line-length = 88
+target-version = "py38"
+extend-exclude = ["build", "dist", "*.egg-info"]
+
+[tool.ruff.lint]
+# Ruff's default rule set (pyflakes F + a curated pycodestyle E subset). Kept
+# conservative for a research repo; expand deliberately rather than all at once.
+# E722 (bare except) is added on top of the defaults as a real correctness rule.
+extend-select = ["E722"]
+ignore = ["E501"]  # line length is handled by the formatter, not the linter
+
+[tool.ruff.lint.per-file-ignores]
+# check_dependencies() probes optional extras with bare imports on purpose.
+"python/maglogic/__init__.py" = ["F401"]
+# core/__init__ re-exports its submodules' public API via star imports.
+"python/maglogic/core/__init__.py" = ["F403", "F405"]
+# conftest configures warning filters before importing numpy/matplotlib.
+"python/tests/conftest.py" = ["E402"]
+# demo_nand_nor has a known BERKELEY_COLORS structural mismatch (see ROADMAP);
+# leave its dead locals flagged-but-ignored until the demo is rewritten.
+"python/maglogic/demos/demo_nand_nor.py" = ["F841"]
+
 # Black code formatting
 [tool.black]
 line-length = 88

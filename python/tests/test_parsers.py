@@ -11,12 +11,9 @@ License: MIT
 
 import pytest
 import numpy as np
-import tempfile
-from pathlib import Path
-from unittest.mock import Mock, patch
 
 from maglogic.parsers import OOMMFParser, MuMax3Parser, BaseParser
-from maglogic.parsers.base_parser import ParseError, UnsupportedFormatError, CorruptedFileError
+from maglogic.parsers.base_parser import ParseError
 
 
 class TestBaseParser:

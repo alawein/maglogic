@@ -12,7 +12,6 @@ License: MIT
 """
 
 import sys
-import os
 import numpy as np
 import matplotlib.pyplot as plt
 from pathlib import Path
@@ -62,7 +61,7 @@ def main():
     # Material parameters (Permalloy)
     try:
         material_params = MATERIAL_CONSTANTS['permalloy_ni80fe20'].copy()
-        print(f"✓ Using material: Permalloy (Ni80Fe20)")
+        print("✓ Using material: Permalloy (Ni80Fe20)")
         print(f"  Ms = {material_params['Ms']:.0f} A/m")
         print(f"  A_ex = {material_params['A_ex']:.2e} J/m")
         print(f"  α = {material_params['alpha']:.3f}")

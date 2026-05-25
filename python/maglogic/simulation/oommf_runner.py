@@ -15,13 +15,11 @@ import shutil
 import tempfile
 import time
 from pathlib import Path
-from typing import Dict, Any, Optional, Union, List, Tuple
-import yaml
+from typing import Dict, Any, Optional, Union, List
 import json
 import numpy as np
 import logging
 
-from ..core.constants import PHYSICAL_CONSTANTS
 from ..parsers import OOMMFParser
 
 logger = logging.getLogger(__name__)

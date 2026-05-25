@@ -10,10 +10,8 @@ License: MIT
 
 import pytest
 import numpy as np
-import tempfile
-import shutil
 from pathlib import Path
-from unittest.mock import Mock, patch, MagicMock
+from unittest.mock import Mock, patch
 import subprocess
 
 from maglogic.simulation.oommf_runner import OOMMFRunner

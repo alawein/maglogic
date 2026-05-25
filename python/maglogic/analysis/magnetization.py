@@ -9,7 +9,7 @@ License: MIT
 """
 
 import numpy as np
-from typing import Dict, Any, Optional, Union, List, Tuple
+from typing import Dict, Any, Optional, Union, Tuple
 from pathlib import Path
 import matplotlib.pyplot as plt
 from scipy import ndimage
@@ -96,8 +96,6 @@ class MagnetizationAnalyzer:
         Returns:
             Dict with num_domains, domain_labels, domain_walls, statistics
         """
-        mx, my, mz = magnetization['mx'], magnetization['my'], magnetization['mz']
-        
         # Calculate local magnetization direction
         theta = magnetization['theta']  # Polar angle
         phi = magnetization['phi']      # Azimuthal angle

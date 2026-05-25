@@ -223,7 +223,6 @@ class TestCalculateExchangeLength:
 
     def test_iron_shorter_than_permalloy(self):
         """Iron has higher Ms and should have shorter exchange length."""
-        l_ex_py = calculate_exchange_length("permalloy_ni80fe20")
         l_ex_fe = calculate_exchange_length("iron")
         # Iron has higher Ms, so exchange length should be shorter
         # unless exchange constant is much higher

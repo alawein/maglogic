@@ -16,7 +16,7 @@ from typing import Dict, Any, Optional, Union, List
 import numpy as np
 import pandas as pd
 
-from .base_parser import BaseParser, ParseError, UnsupportedFormatError, CorruptedFileError
+from .base_parser import BaseParser, ParseError, UnsupportedFormatError
 from .oommf_parser import OOMMFParser
 
 class MuMax3Parser(BaseParser):
@@ -69,10 +69,10 @@ class MuMax3Parser(BaseParser):
             # Try table format first, then others
             try:
                 return self.parse_table(filepath)
-            except:
+            except Exception:
                 try:
                     return self.parse_ovf(filepath)
-                except:
+                except Exception:
                     raise UnsupportedFormatError(f"Cannot determine MuMax3 file format: {filepath}")
     
     def parse_table(self, filepath: Union[str, Path]) -> Dict[str, Any]:
@@ -126,7 +126,7 @@ class MuMax3Parser(BaseParser):
                 # Try pandas for better performance
                 data = pd.read_csv(filepath, sep=r'\s+', comment='#', header=None, skiprows=data_start_line)
                 data_array = data.values
-            except:
+            except Exception:
                 # Fallback to numpy
                 data_array = np.loadtxt(filepath, comments='#', skiprows=data_start_line)
             

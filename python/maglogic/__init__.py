@@ -144,13 +144,18 @@ def check_dependencies():
     
     # Check core scientific computing dependencies
     try:
-        import numpy, scipy, matplotlib, pandas
+        import numpy
+        import scipy
+        import matplotlib
+        import pandas
     except ImportError:
         status["core"] = False
     
     # Check visualization dependencies
     try:
-        import plotly, seaborn, bokeh
+        import plotly
+        import seaborn
+        import bokeh
     except ImportError:
         status["visualization"] = False
     
@@ -176,7 +181,8 @@ def check_dependencies():
     
     # Check HPC dependencies
     try:
-        import mpi4py, h5py
+        import mpi4py
+        import h5py
     except ImportError:
         status["hpc"] = False
     
@@ -237,7 +243,7 @@ def print_system_info():
     deps = check_dependencies()
     for category, status in deps.items():
         if category == "simulators":
-            print(f"  Simulators:")
+            print("  Simulators:")
             for sim, available in status.items():
                 status_str = "✓ Available" if available else "✗ Not found"
                 print(f"    {sim.upper()}: {status_str}")

@@ -10,7 +10,7 @@ License: MIT
 """
 
 import numpy as np
-from typing import Union, Dict, Any, List, Optional, Tuple
+from typing import Union, Dict, Any, List, Optional
 import warnings
 from .constants import PARAMETER_RANGES, MATERIAL_CONSTANTS, PHYSICAL_CONSTANTS
 
@@ -54,9 +54,7 @@ def validate_input(value: Union[float, np.ndarray],
     """
     # Convert to numpy array for consistent handling
     val_array = np.asarray(value)
-    original_shape = val_array.shape
-    original_type = type(value)
-    
+
     # Check for finite values
     if finite and not np.all(np.isfinite(val_array)):
         raise ValidationError(f"{name} must be finite (no NaN or inf values)")

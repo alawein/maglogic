@@ -12,7 +12,7 @@ License: MIT
 import struct
 import re
 from pathlib import Path
-from typing import Dict, Any, Optional, Union, List, Tuple
+from typing import Dict, Any, Union
 import numpy as np
 import pandas as pd
 
@@ -63,10 +63,10 @@ class OOMMFParser(BaseParser):
             # Try to detect based on content
             try:
                 return self.parse_ovf(filepath)
-            except:
+            except Exception:
                 try:
                     return self.parse_odt(filepath)
-                except:
+                except Exception:
                     raise UnsupportedFormatError(f"Cannot determine file format: {filepath}")
     
     def parse_ovf(self, filepath: Union[str, Path]) -> Dict[str, Any]:
@@ -168,7 +168,7 @@ class OOMMFParser(BaseParser):
                 # Try pandas first (faster and more robust)
                 data = pd.read_csv(filepath, comment='#', sep=r'\s+', header=None)
                 data_array = data.values
-            except:
+            except Exception:
                 # Fallback to numpy
                 data_array = np.loadtxt(filepath, comments='#')
             
@@ -307,7 +307,7 @@ class OOMMFParser(BaseParser):
             range_str = line.split(':')[1].strip()
             try:
                 header['valuerange'] = [float(x) for x in range_str.split()]
-            except:
+            except Exception:
                 pass
         
         # Units
@@ -364,7 +364,7 @@ class OOMMFParser(BaseParser):
                 endian = '>'
             else:
                 endian = '<'
-        except:
+        except Exception:
             raise CorruptedFileError("Cannot read binary data marker")
         
         # Read magnetization data

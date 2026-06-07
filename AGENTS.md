@@ -9,7 +9,7 @@ last_updated: 2026-04-15
 last-verified: 2026-04-15
 ---
 
-# AGENTS — MagLogic
+# AGENTS: MagLogic
 
 ## Workspace identity
 

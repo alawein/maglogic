@@ -27,7 +27,7 @@ emphasizing implementation details.
 
 ## About
 
-Python tools for simulating nanomagnetic logic devices using OOMMF and MuMax3 backends. Implements nanomagnetic logic simulations from Alawein et al. (IEEE Magnetics Letters, 2019) for triangular element logic gates and cellular automata—designed for reproducible research and teaching.
+Python tools for simulating nanomagnetic logic devices using OOMMF and MuMax3 backends. Implements nanomagnetic logic simulations from Alawein et al. (IEEE Magnetics Letters, 2019) for triangular element logic gates and cellular automata, designed for reproducible research and teaching.
 
 ## Features
 

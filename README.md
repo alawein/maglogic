@@ -52,6 +52,21 @@ See [docs/architecture/STRUCTURE_DECISION.md](docs/architecture/STRUCTURE_DECISI
 - No external dataset download required for bundled demos
 - Regenerate figures from documented scripts before citing numerical results
 
+
+## Architecture
+
+```text
+maglogic/
+├── python/maglogic/  # canonical Python package
+├── python/tests/     # pytest suite
+├── oommf/ mumax3/    # micromagnetic solver inputs
+├── matlab/           # MATLAB reference implementations
+├── examples/ docker/ # demos and reproducible environment
+└── docs/             # theory, API, architecture decisions
+```
+
+Detail: [docs/architecture/topology.md](docs/architecture/topology.md), [docs/architecture/STRUCTURE_DECISION.md](docs/architecture/STRUCTURE_DECISION.md), and [docs/architecture.md](docs/architecture.md).
+
 ## Docs map
 
 - [docs/README.md](docs/README.md)

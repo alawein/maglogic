@@ -41,7 +41,7 @@ PYTHONPATH=python python -m pytest python/tests/ -v
 Quick demo:
 
 ```bash
-PYTHONPATH=python python examples/demo_truth_table.py
+PYTHONPATH=python python examples/run_basic_triangle.py
 ```
 
 See [docs/architecture/STRUCTURE_DECISION.md](docs/architecture/STRUCTURE_DECISION.md) for the language-boundary layout (`python/maglogic/` is canonical; this repo does not use `src/<package>`).

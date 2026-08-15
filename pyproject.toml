@@ -103,12 +103,6 @@ Documentation = "https://github.com/alawein/maglogic/"
 Repository = "https://github.com/alawein/maglogic"
 "Bug Reports" = "https://github.com/alawein/maglogic/issues"
 
-[project.scripts]
-maglogic = "maglogic.cli:main"
-maglogic-convert = "maglogic.scripts.convert_formats:main"
-maglogic-analyze = "maglogic.scripts.batch_analysis:main"
-maglogic-gui = "maglogic.gui.maglogic_dashboard:main"
-
 [tool.setuptools]
 packages = ["maglogic"]
 package-dir = {"" = "python"}

@@ -10,7 +10,7 @@ sla: none
 ## Running a Truth Table
 
 ```bash
-PYTHONPATH=python python examples/demo_truth_table.py
+PYTHONPATH=python python examples/run_basic_triangle.py
 ```
 
 ## Programmatic API

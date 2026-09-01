@@ -1,12 +1,11 @@
 # Repo instructions for GitHub Copilot
 
 GitHub Copilot reads this file from `.github/copilot-instructions.md`. The prompts live in
-`.github/prompts/` as `.prompt.md` files. Read this at the start of a session. Replace the bracketed
-text for your project, then delete it.
+`.github/prompts/` as `.prompt.md` files. Read this at the start of a session.
 
 ## What this project is
 
-[One or two sentences on what the project is and who it helps.]
+Magnetic logic gates and device simulation research.
 
 ## Prompts
 
@@ -26,7 +25,7 @@ Use the one that fits the step you are on.
 - Plan before a non-trivial edit.
 - Make the smallest change that solves the problem.
 - Add or update a test when behavior changes.
-- Run the required checks before you call the work done. [Name the required check.]
+- Run the required checks before you call the work done: `ruff check . && mypy . && pytest`.
 - Stage explicit paths. Keep `.env` and secrets out of git.
 - Imperative commit subject, one concern per commit or PR.
 

@@ -5,7 +5,6 @@ Category:    lab
 Owner:       alawein
 Visibility:  public
 Purpose:     Magnetic logic gates and device simulation research.
-Next action: continue
 
 ## Abstract
 

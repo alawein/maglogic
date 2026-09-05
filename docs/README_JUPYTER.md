@@ -58,18 +58,13 @@ plt.show()
 
 # Example simulation setup (executable)
 try:
-    from maglogic.demos import demo_nand_nor
+    from maglogic.demos.demo_nand_nor import NANDNORDemo
     print("✓ MagLogic modules loaded successfully")
     
     # Interactive parameter exploration
     def explore_logic_gate(clock_angle=60, input_a=1, input_b=1):
         """Interactive logic gate exploration"""
-        result = demo_nand_nor.run_simulation(
-            clock_angle=clock_angle, 
-            input_A=input_a, 
-            input_B=input_b
-        )
-        return f"Gate output: {result.get('logic_output', 0)}"
+        raise RuntimeError("The full NAND/NOR demo requires a local OOMMF installation; use NANDNORDemo.run_complete_demo() after configuring OOMMF.")
     
     print("Interactive demo ready!")
     

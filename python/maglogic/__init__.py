@@ -17,9 +17,9 @@ License: MIT
 
 Example Usage:
     >>> import maglogic
-    >>> from maglogic.demos import demo_nand_nor
-    >>> result = demo_nand_nor.run_simulation(clock_angle=60, input_A=1, input_B=0)
-    >>> print(f"Logic output: {result['logic_output']}")
+    >>> from maglogic.demos.demo_nand_nor import NANDNORDemo
+    >>> demo = NANDNORDemo(output_dir="nand_nor_demo")
+    >>> results = demo.run_complete_demo()  # requires a local OOMMF installation
 """
 
 # Version information
@@ -35,7 +35,7 @@ __description__ = "Nanomagnetic Logic Simulation Suite"
 __url__ = "https://github.com/alawein/maglogic"
 __download_url__ = "https://github.com/alawein/maglogic/releases"
 __docs_url__ = "https://github.com/alawein/maglogic/tree/main/docs"
-__paper_url__ = "https://doi.org/10.1109/LMAG.2019.2912398"
+__paper_url__ = "https://doi.org/10.1109/LMAG.2019.2899819"
 
 # Import version check
 import sys

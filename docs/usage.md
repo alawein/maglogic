@@ -16,18 +16,21 @@ PYTHONPATH=python python examples/run_basic_triangle.py
 ## Programmatic API
 
 ```python
-from maglogic.demos import demo_nand_nor
-result = demo_nand_nor.generate_truth_table()
-print(result["truth_table"])
+from maglogic.demos.demo_nand_nor import NANDNORDemo
+
+# Running the full demo requires a local OOMMF installation.
+demo = NANDNORDemo(output_dir="nand_nor_demo")
+result = demo.run_complete_demo()
+print(result["nand_gate_results"])
 ```
 
 ## Simulation Backends
 
-- **OOMMF**: place OOMMF binaries on PATH; use configs under `oommf/`.
+- **OOMMF**: install OOMMF locally and use configs under `oommf/`; MagLogic does not bundle or execute a solver in its analysis-only example.
 - **MuMax3**: requires GPU-enabled build; samples under `mumax3/`.
 
 ## Tips
 
 - Keep `PYTHONPATH=python` when running examples/tests.
-- Use Docker (`docker compose up`) for an isolated, reproducible environment.
+- For Docker, copy `docker/.env.example` to `docker/.env`, set unique local credentials, then use `docker compose --env-file .env up`.
 - Large simulation assets are not committed; fetch or mount as needed.

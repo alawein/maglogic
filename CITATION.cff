@@ -3,11 +3,11 @@ message: "If you use this software, please cite it as below."
 type: software
 title: "MagLogic: Nanomagnetic Logic Simulation Suite"
 abstract: >
-  MagLogic is a computational framework for simulating and analyzing
-  nanomagnetic logic devices. Provides integrated tools for micromagnetic
-  simulations using OOMMF and MuMax3, magnetization analysis, and
-  demonstrations of reconfigurable logic gates based on triangular
-  nanomagnetic elements.
+  MagLogic is a computational framework for analyzing nanomagnetic logic
+  devices and preparing workflows for external micromagnetic solvers. It
+  provides magnetization analysis and demonstrations of reconfigurable logic
+  gates based on triangular nanomagnetic elements; OOMMF and MuMax3 must be
+  installed and run separately.
 authors:
   - family-names: "Alawein"
     given-names: "Meshal"
@@ -31,10 +31,14 @@ references:
     authors:
       - given-names: "Meshal"
         family-names: "Alawein"
+      - given-names: "Selma"
+        family-names: "Amara"
+      - given-names: "Hossein"
+        family-names: "Fariborzi"
     journal: "IEEE Magnetics Letters"
     volume: 10
     year: 2019
-    doi: "10.1109/LMAG.2019.2912398"
+    doi: "10.1109/LMAG.2019.2899819"
 preferred-citation:
   type: software
   title: "MagLogic: Nanomagnetic Logic Simulation Suite"

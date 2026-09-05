@@ -7,7 +7,8 @@ name = "maglogic"
 version = "1.0.0"
 description = "Nanomagnetic Logic Simulation Suite for Computational Magnetism"
 readme = "README.md"
-license = {file = "LICENSE"}
+license = "MIT"
+license-files = ["LICENSE"]
 authors = [
     {name = "Meshal Alawein", email = "contact@meshal.ai"},
 ]
@@ -18,7 +19,6 @@ classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Science/Research",
     "Intended Audience :: Education",
-    "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.8",
@@ -103,16 +103,13 @@ Documentation = "https://github.com/alawein/maglogic/"
 Repository = "https://github.com/alawein/maglogic"
 "Bug Reports" = "https://github.com/alawein/maglogic/issues"
 
-[project.scripts]
-maglogic = "maglogic.cli:main"
-maglogic-convert = "maglogic.scripts.convert_formats:main"
-maglogic-analyze = "maglogic.scripts.batch_analysis:main"
-maglogic-gui = "maglogic.gui.maglogic_dashboard:main"
-
 [tool.setuptools]
-packages = ["maglogic"]
 package-dir = {"" = "python"}
 include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["python"]
+include = ["maglogic*"]
 
 [tool.setuptools.package-data]
 maglogic = [
@@ -145,8 +142,6 @@ ignore = ["E501"]  # line length is handled by the formatter, not the linter
 "python/maglogic/core/__init__.py" = ["F403", "F405"]
 # conftest configures warning filters before importing numpy/matplotlib.
 "python/tests/conftest.py" = ["E402"]
-# demo_nand_nor has a known BERKELEY_COLORS structural mismatch (see ROADMAP);
-# leave its dead locals flagged-but-ignored until the demo is rewritten.
 "python/maglogic/demos/demo_nand_nor.py" = ["F841"]
 
 # Black code formatting

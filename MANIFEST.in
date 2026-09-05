@@ -1,0 +1,19 @@
+include README.md LICENSE CITATION.cff pyproject.toml
+recursive-include python/maglogic *.py *.json *.yaml *.csv *.mplstyle *.template
+prune .github
+prune .claude
+prune .cursor
+prune .outpost
+prune docker
+prune docs
+prune examples
+prune matlab
+prune mumax3
+prune oommf
+prune python/tests
+prune reports
+prune scripts
+global-exclude __pycache__ *.py[cod] .DS_Store
+exclude AGENTS.md CHANGELOG.md CLAUDE.md CODE_OF_CONDUCT.md CONTRIBUTING.md LESSONS.md SECURITY.md SSOT.md
+exclude environment.yml requirements.txt service-metadata.yaml setup.cfg
+exclude .editorconfig .gitattributes .gitignore

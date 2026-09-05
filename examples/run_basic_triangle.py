@@ -79,16 +79,17 @@ def main():
     output_dir.mkdir(exist_ok=True)
     print(f"✓ Output directory: {output_dir.absolute()}")
     
-    # Check for OOMMF availability
+    # Check for OOMMF availability. This educational example does not execute a
+    # solver job: use the bundled .mif files with OOMMF for solver-backed runs.
     try:
-        runner = OOMMFRunner(verbose=True)
-        oommf_available = runner.check_installation()
-        print(f"✓ OOMMF available: {oommf_available}")
-    except Exception as e:
-        print(f"⚠ OOMMF runner error: {e}")
-        print("Continuing with parameter analysis only...")
+        runner = OOMMFRunner()
+        oommf_available = True
+        print("✓ OOMMF installation detected")
+    except RuntimeError as exc:
         oommf_available = False
-    
+        print(f"OOMMF not available: {exc}")
+        print("This run will generate parameter-analysis plots only; no solver was executed.")
+
     # Analyze simulation parameters
     print("\n" + "="*40)
     print("Simulation Parameter Analysis")
@@ -129,67 +130,21 @@ def main():
     tau_relax = 1 / (alpha * gamma * Ms)
     print(f"Relaxation time: {tau_relax*1e9:.1f} ns")
     
-    # Run simulation if OOMMF is available
     if oommf_available:
-        print("\n" + "="*40)
-        print("Running OOMMF Simulation")
-        print("="*40)
-        
-        try:
-            # Create simulation configuration
-            config = {
-                'geometry': {
-                    'shape': 'triangle',
-                    'edge_length': params['edge_length'],
-                    'thickness': params['thickness']
-                },
-                'material': material_params,
-                'simulation': {
-                    'final_time': params['final_time'],
-                    'cell_size': params['cell_size'],
-                    'temperature': params['temperature']
-                },
-                'output': {
-                    'directory': str(output_dir),
-                    'basename': 'basic_triangle'
-                }
-            }
-            
-            # Run simulation
-            print("Starting simulation...")
-            result = runner.run_simulation(config)
-            
-            if result['success']:
-                print("✓ Simulation completed successfully!")
-                print(f"  Runtime: {result.get('runtime', 'unknown')}")
-                print(f"  Output files: {len(result.get('output_files', []))}")
-                
-                # Analyze results
-                analyze_results(result, output_dir)
-                
-            else:
-                print(f"✗ Simulation failed: {result.get('error', 'Unknown error')}")
-                
-        except Exception as e:
-            print(f"✗ Simulation error: {e}")
-            print("This may be due to:")
-            print("  - OOMMF not properly installed")
-            print("  - Missing simulation files")
-            print("  - Insufficient permissions")
-    
+        print("\nOOMMF is installed, but this example intentionally does not submit a solver job.")
+        print("To execute a simulation, run an OOMMF .mif input such as oommf/basic/single_triangle.mif.")
+
     # Create educational plots
     create_educational_plots(params, material_params, output_dir)
     
     print("\n" + "="*60)
-    print("Example completed!")
+    print("Parameter-analysis example completed (no solver execution claimed).")
     print("="*60)
     print("Next steps:")
     print("1. Examine the generated plots in:", output_dir)
     print("2. Try modifying simulation parameters")
-    print("3. Run more complex examples:")
-    print("   - python examples/compare_simulators.py")
-    print("   - python examples/generate_logic_demo.py")
-    print("4. Explore Jupyter notebooks in python/notebooks/")
+    print("3. For solver-backed runs, execute the bundled OOMMF inputs under oommf/.")
+    print("4. See docs/usage.md for the supported Python demo API.")
 
 def analyze_results(result, output_dir):
     """Analyze simulation results and create plots."""

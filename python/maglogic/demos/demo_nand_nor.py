@@ -19,7 +19,7 @@ import logging
 
 from ..simulation.oommf_runner import OOMMFRunner
 from ..analysis.magnetization import MagnetizationAnalyzer
-from ..core.constants import BERKELEY_COLORS
+from ..visualization.berkeley_style import BERKELEY_COLORS
 
 logger = logging.getLogger(__name__)
 
@@ -806,8 +806,8 @@ Schedule Oxs_TimeDriver::Magnetization mags Step 100
         x = np.arange(len(inputs))
         width = 0.35
         
-        bars1 = ax.bar(x - width/2, expected, width, label='Expected', color=BERKELEY_COLORS['california_gold'])
-        bars2 = ax.bar(x + width/2, actual, width, label='Actual', color=BERKELEY_COLORS['berkeley_blue'])
+        bars1 = ax.bar(x - width/2, expected, width, label='Expected', color=BERKELEY_COLORS['primary']['california_gold'])
+        bars2 = ax.bar(x + width/2, actual, width, label='Actual', color=BERKELEY_COLORS['primary']['berkeley_blue'])
         
         ax.set_xlabel('Input Combination (AB)')
         ax.set_ylabel('Output')
@@ -835,7 +835,7 @@ Schedule Oxs_TimeDriver::Magnetization mags Step 100
         gates = list(success_rates.keys())
         rates = list(success_rates.values())
         
-        ax1.bar(gates, rates, color=[BERKELEY_COLORS['berkeley_blue'], BERKELEY_COLORS['california_gold']])
+        ax1.bar(gates, rates, color=[BERKELEY_COLORS['primary']['berkeley_blue'], BERKELEY_COLORS['primary']['california_gold']])
         ax1.set_ylabel('Success Rate')
         ax1.set_title('Logic Gate Success Rates')
         ax1.set_ylim(0, 1.1)
@@ -844,7 +844,7 @@ Schedule Oxs_TimeDriver::Magnetization mags Step 100
         delays = comparison.get('average_delays', {})
         delay_values = [delays.get(gate, 0) for gate in gates]
         
-        ax2.bar(gates, delay_values, color=[BERKELEY_COLORS['berkeley_blue'], BERKELEY_COLORS['california_gold']])
+        ax2.bar(gates, delay_values, color=[BERKELEY_COLORS['primary']['berkeley_blue'], BERKELEY_COLORS['primary']['california_gold']])
         ax2.set_ylabel('Average Delay (s)')
         ax2.set_title('Average Switching Delays')
         
@@ -852,7 +852,7 @@ Schedule Oxs_TimeDriver::Magnetization mags Step 100
         energies = comparison.get('energy_consumption', {})
         energy_values = [energies.get(gate, 0) for gate in gates]
         
-        ax3.bar(gates, energy_values, color=[BERKELEY_COLORS['berkeley_blue'], BERKELEY_COLORS['california_gold']])
+        ax3.bar(gates, energy_values, color=[BERKELEY_COLORS['primary']['berkeley_blue'], BERKELEY_COLORS['primary']['california_gold']])
         ax3.set_ylabel('Energy Consumption (J)')
         ax3.set_title('Energy Consumption Comparison')
         
@@ -872,8 +872,8 @@ Schedule Oxs_TimeDriver::Magnetization mags Step 100
         x = np.arange(len(metrics))
         width = 0.35
         
-        ax4.bar(x - width/2, nand_metrics, width, label='NAND', color=BERKELEY_COLORS['berkeley_blue'])
-        ax4.bar(x + width/2, nor_metrics, width, label='NOR', color=BERKELEY_COLORS['california_gold'])
+        ax4.bar(x - width/2, nand_metrics, width, label='NAND', color=BERKELEY_COLORS['primary']['berkeley_blue'])
+        ax4.bar(x + width/2, nor_metrics, width, label='NOR', color=BERKELEY_COLORS['primary']['california_gold'])
         ax4.set_xlabel('Metrics')
         ax4.set_ylabel('Normalized Values')
         ax4.set_title('Overall Performance Comparison')

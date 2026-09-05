@@ -283,7 +283,13 @@ class BerkeleyStyle:
         for name in colormap_names:
             try:
                 cmap = self.get_colormap(name)
-                plt.cm.register_cmap(name, cmap)
+                if hasattr(plt, "colormaps"):
+                    plt.colormaps.register(cmap, name=name)
+                else:  # Matplotlib < 3.5 compatibility
+                    plt.cm.register_cmap(name, cmap)
+            except ValueError:
+                # Colormap already registered.
+                pass
             except Exception as e:
                 warnings.warn(f"Could not register colormap '{name}': {e}")
     

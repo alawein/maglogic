@@ -363,3 +363,13 @@ coverage/
 htmlcov/
 .coverage
 *.log
+
+# Credentials / secrets (security hardening)
+*.pem
+*.key
+*.p12
+*.keystore
+id_rsa*
+.claude.json
+# Track the safe container configuration template.
+!docker/.env.example

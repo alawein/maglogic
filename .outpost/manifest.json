@@ -1,0 +1,299 @@
+{
+  "kit_version": "1.0.0",
+  "tools": {
+    "copilot": {
+      "files": {
+        ".github/copilot-instructions.md": {
+          "existed": false,
+          "kit_hash": "sha256:4a64216a05049a3c58ad034421db614b5c38c7e32e1b8d6f10889426d0aeceb8"
+        },
+        ".github/prompts/check-intent.prompt.md": {
+          "existed": false,
+          "kit_hash": "sha256:041946142fb4cdc013aef26b01f5376ebe0c106fa2b560dec74b67532ae413f4"
+        },
+        ".github/prompts/code-review.prompt.md": {
+          "existed": false,
+          "kit_hash": "sha256:6da9d21903ccfce2f55266f78079bae699ea7dfac93c523fb6efdba95a899596"
+        },
+        ".github/prompts/cross-doc-check.prompt.md": {
+          "existed": false,
+          "kit_hash": "sha256:9d9efb8d048a9f5bc3f5fadcf4455a3657e0660b9d5abba3b9ccf9d589407814"
+        },
+        ".github/prompts/debt-log.prompt.md": {
+          "existed": false,
+          "kit_hash": "sha256:c66045b5dd04d1a9c3a61c968061db9975ddc01d00b0c609f26e02a11e833f26"
+        },
+        ".github/prompts/debug-failure.prompt.md": {
+          "existed": false,
+          "kit_hash": "sha256:85a619e42cbb808b28c3d0d08f13bae63f206815592c13855ed09a19837ebd1b"
+        },
+        ".github/prompts/grill.prompt.md": {
+          "existed": false,
+          "kit_hash": "sha256:5bcf16a1084a5a1fb8b71ca0afbd4f33a11f58da69079c0696be5da8cbc65591"
+        },
+        ".github/prompts/handoff-session.prompt.md": {
+          "existed": false,
+          "kit_hash": "sha256:8006bc9ef4f3c81a4f52f587a5440894962dd80ada4cda292df91443d010bf82"
+        },
+        ".github/prompts/implement-change.prompt.md": {
+          "existed": false,
+          "kit_hash": "sha256:616898115ba57ea5eaf29d770a5926bbf6916721e2f6f02f672e8dbccda73a0f"
+        },
+        ".github/prompts/interrogate.prompt.md": {
+          "existed": false,
+          "kit_hash": "sha256:8db96595ca6d6f9e06c8b35333349aa32262148efab635750dddd0a41c4a097d"
+        },
+        ".github/prompts/orient-repo.prompt.md": {
+          "existed": false,
+          "kit_hash": "sha256:b49a230ac9bf0ff8456b15b518f8fce18be0ace3b1553e3c1f8f60cb2fd9e731"
+        },
+        ".github/prompts/panel.prompt.md": {
+          "existed": false,
+          "kit_hash": "sha256:67b13cf53d5791aacf41cf0885cce6a3e644d6f9bedf43ccb6bddd2d9e018f40"
+        },
+        ".github/prompts/plan-change.prompt.md": {
+          "existed": false,
+          "kit_hash": "sha256:7e065a6a73eb7285c0b4e079137257568e0e7b695b69ab63854464857d467d7a"
+        },
+        ".github/prompts/premortem.prompt.md": {
+          "existed": false,
+          "kit_hash": "sha256:1d33096498b6c4a453b459ee59ac8dbe032d8292548d1f5f1c983e3a0625df64"
+        },
+        ".github/prompts/prepare-pr.prompt.md": {
+          "existed": false,
+          "kit_hash": "sha256:6ec2d6959314bf1f46a298bcd5d4f982c040f0763cb22aad4729308956e09a27"
+        },
+        ".github/prompts/prove.prompt.md": {
+          "existed": false,
+          "kit_hash": "sha256:298d23682caef7d3255e9df301108387046ddbcd8d30efb4a04190f2149e0a1e"
+        },
+        ".github/prompts/record-decision.prompt.md": {
+          "existed": false,
+          "kit_hash": "sha256:e4f1a6e366019c2ad2bbb2bb9ab49f6fc7d20ef1cda211ac8119fe9b5abc230a"
+        },
+        ".github/prompts/refactor-safely.prompt.md": {
+          "existed": false,
+          "kit_hash": "sha256:3d59d0442babf7903f956de10847383d500fb35bcf1992b40de655f53db43992"
+        },
+        ".github/prompts/repo-hygiene-sweep.prompt.md": {
+          "existed": false,
+          "kit_hash": "sha256:c16b9a8b8fa4f730ca49fafeab2e2658f4b9865e7cd6da08f32a72000e6c2482"
+        },
+        ".github/prompts/repo-review.prompt.md": {
+          "existed": false,
+          "kit_hash": "sha256:65aebc543908bf885d559ab2e4245470e3a7075a1f6d6531da4b2d340bfc29dd"
+        },
+        ".github/prompts/respond-to-review.prompt.md": {
+          "existed": false,
+          "kit_hash": "sha256:fd56996ed5d1e677ebb6428eabdca239b8e6e814e4774628382e12192a7cb9bd"
+        },
+        ".github/prompts/risk-review.prompt.md": {
+          "existed": false,
+          "kit_hash": "sha256:16c30c1062568bb2638cda6b2f30bb6c5fc437e252f5c41fcdb8d4c9952a9276"
+        },
+        ".github/prompts/self-refute.prompt.md": {
+          "existed": false,
+          "kit_hash": "sha256:4ef92b7475431c063a514daa9a2ad4c2ff672dc688666f8015a078a3292e5ac2"
+        },
+        ".github/prompts/simplify.prompt.md": {
+          "existed": false,
+          "kit_hash": "sha256:ee242f1a92c2940d497d30e3e1d38ddd71bbeb82be1b92578605bc1998dc20d6"
+        },
+        ".github/prompts/split-change.prompt.md": {
+          "existed": false,
+          "kit_hash": "sha256:b69042a848c18eb7c72b90121e1b31084df11f2a8f347cc5cbc2f18035a714f1"
+        },
+        ".github/prompts/triage.prompt.md": {
+          "existed": false,
+          "kit_hash": "sha256:82b105ce9b973674cfe575be3da710e5fb5c802c2804d007ade0a8d24177951c"
+        },
+        ".github/prompts/write-doc.prompt.md": {
+          "existed": false,
+          "kit_hash": "sha256:f28888cd2e8b31ee17c8664a22beab3f077f1fec504f68ca635c46dcd75ed11e"
+        },
+        ".github/prompts/write-tests.prompt.md": {
+          "existed": false,
+          "kit_hash": "sha256:7c378c6d3e73138b3f1622c3cefd8af87f0b7c7cf83d3ea52a866b38b3ce1c47"
+        }
+      },
+      "prompts": [
+        "check-intent",
+        "code-review",
+        "cross-doc-check",
+        "debt-log",
+        "debug-failure",
+        "grill",
+        "handoff-session",
+        "implement-change",
+        "interrogate",
+        "orient-repo",
+        "panel",
+        "plan-change",
+        "premortem",
+        "prepare-pr",
+        "prove",
+        "record-decision",
+        "refactor-safely",
+        "repo-hygiene-sweep",
+        "repo-review",
+        "respond-to-review",
+        "risk-review",
+        "self-refute",
+        "simplify",
+        "split-change",
+        "triage",
+        "write-doc",
+        "write-tests"
+      ],
+      "selection": "full",
+      "terse": false
+    },
+    "cursor": {
+      "files": {
+        ".cursor/rules/outpost.mdc": {
+          "existed": false,
+          "kit_hash": "sha256:d0343444bc9936d9bb89a1472bc5d6bc4c6375ffc87c8f11aee3a2f024940c16"
+        },
+        ".cursor/rules/outpost/check-intent.md": {
+          "existed": false,
+          "kit_hash": "sha256:041946142fb4cdc013aef26b01f5376ebe0c106fa2b560dec74b67532ae413f4"
+        },
+        ".cursor/rules/outpost/code-review.md": {
+          "existed": false,
+          "kit_hash": "sha256:6da9d21903ccfce2f55266f78079bae699ea7dfac93c523fb6efdba95a899596"
+        },
+        ".cursor/rules/outpost/cross-doc-check.md": {
+          "existed": false,
+          "kit_hash": "sha256:9d9efb8d048a9f5bc3f5fadcf4455a3657e0660b9d5abba3b9ccf9d589407814"
+        },
+        ".cursor/rules/outpost/debt-log.md": {
+          "existed": false,
+          "kit_hash": "sha256:c66045b5dd04d1a9c3a61c968061db9975ddc01d00b0c609f26e02a11e833f26"
+        },
+        ".cursor/rules/outpost/debug-failure.md": {
+          "existed": false,
+          "kit_hash": "sha256:85a619e42cbb808b28c3d0d08f13bae63f206815592c13855ed09a19837ebd1b"
+        },
+        ".cursor/rules/outpost/grill.md": {
+          "existed": false,
+          "kit_hash": "sha256:5bcf16a1084a5a1fb8b71ca0afbd4f33a11f58da69079c0696be5da8cbc65591"
+        },
+        ".cursor/rules/outpost/handoff-session.md": {
+          "existed": false,
+          "kit_hash": "sha256:8006bc9ef4f3c81a4f52f587a5440894962dd80ada4cda292df91443d010bf82"
+        },
+        ".cursor/rules/outpost/implement-change.md": {
+          "existed": false,
+          "kit_hash": "sha256:616898115ba57ea5eaf29d770a5926bbf6916721e2f6f02f672e8dbccda73a0f"
+        },
+        ".cursor/rules/outpost/interrogate.md": {
+          "existed": false,
+          "kit_hash": "sha256:8db96595ca6d6f9e06c8b35333349aa32262148efab635750dddd0a41c4a097d"
+        },
+        ".cursor/rules/outpost/orient-repo.md": {
+          "existed": false,
+          "kit_hash": "sha256:b49a230ac9bf0ff8456b15b518f8fce18be0ace3b1553e3c1f8f60cb2fd9e731"
+        },
+        ".cursor/rules/outpost/panel.md": {
+          "existed": false,
+          "kit_hash": "sha256:67b13cf53d5791aacf41cf0885cce6a3e644d6f9bedf43ccb6bddd2d9e018f40"
+        },
+        ".cursor/rules/outpost/plan-change.md": {
+          "existed": false,
+          "kit_hash": "sha256:7e065a6a73eb7285c0b4e079137257568e0e7b695b69ab63854464857d467d7a"
+        },
+        ".cursor/rules/outpost/premortem.md": {
+          "existed": false,
+          "kit_hash": "sha256:1d33096498b6c4a453b459ee59ac8dbe032d8292548d1f5f1c983e3a0625df64"
+        },
+        ".cursor/rules/outpost/prepare-pr.md": {
+          "existed": false,
+          "kit_hash": "sha256:6ec2d6959314bf1f46a298bcd5d4f982c040f0763cb22aad4729308956e09a27"
+        },
+        ".cursor/rules/outpost/prove.md": {
+          "existed": false,
+          "kit_hash": "sha256:298d23682caef7d3255e9df301108387046ddbcd8d30efb4a04190f2149e0a1e"
+        },
+        ".cursor/rules/outpost/record-decision.md": {
+          "existed": false,
+          "kit_hash": "sha256:e4f1a6e366019c2ad2bbb2bb9ab49f6fc7d20ef1cda211ac8119fe9b5abc230a"
+        },
+        ".cursor/rules/outpost/refactor-safely.md": {
+          "existed": false,
+          "kit_hash": "sha256:3d59d0442babf7903f956de10847383d500fb35bcf1992b40de655f53db43992"
+        },
+        ".cursor/rules/outpost/repo-hygiene-sweep.md": {
+          "existed": false,
+          "kit_hash": "sha256:c16b9a8b8fa4f730ca49fafeab2e2658f4b9865e7cd6da08f32a72000e6c2482"
+        },
+        ".cursor/rules/outpost/repo-review.md": {
+          "existed": false,
+          "kit_hash": "sha256:65aebc543908bf885d559ab2e4245470e3a7075a1f6d6531da4b2d340bfc29dd"
+        },
+        ".cursor/rules/outpost/respond-to-review.md": {
+          "existed": false,
+          "kit_hash": "sha256:fd56996ed5d1e677ebb6428eabdca239b8e6e814e4774628382e12192a7cb9bd"
+        },
+        ".cursor/rules/outpost/risk-review.md": {
+          "existed": false,
+          "kit_hash": "sha256:16c30c1062568bb2638cda6b2f30bb6c5fc437e252f5c41fcdb8d4c9952a9276"
+        },
+        ".cursor/rules/outpost/self-refute.md": {
+          "existed": false,
+          "kit_hash": "sha256:4ef92b7475431c063a514daa9a2ad4c2ff672dc688666f8015a078a3292e5ac2"
+        },
+        ".cursor/rules/outpost/simplify.md": {
+          "existed": false,
+          "kit_hash": "sha256:ee242f1a92c2940d497d30e3e1d38ddd71bbeb82be1b92578605bc1998dc20d6"
+        },
+        ".cursor/rules/outpost/split-change.md": {
+          "existed": false,
+          "kit_hash": "sha256:b69042a848c18eb7c72b90121e1b31084df11f2a8f347cc5cbc2f18035a714f1"
+        },
+        ".cursor/rules/outpost/triage.md": {
+          "existed": false,
+          "kit_hash": "sha256:82b105ce9b973674cfe575be3da710e5fb5c802c2804d007ade0a8d24177951c"
+        },
+        ".cursor/rules/outpost/write-doc.md": {
+          "existed": false,
+          "kit_hash": "sha256:f28888cd2e8b31ee17c8664a22beab3f077f1fec504f68ca635c46dcd75ed11e"
+        },
+        ".cursor/rules/outpost/write-tests.md": {
+          "existed": false,
+          "kit_hash": "sha256:7c378c6d3e73138b3f1622c3cefd8af87f0b7c7cf83d3ea52a866b38b3ce1c47"
+        }
+      },
+      "prompts": [
+        "check-intent",
+        "code-review",
+        "cross-doc-check",
+        "debt-log",
+        "debug-failure",
+        "grill",
+        "handoff-session",
+        "implement-change",
+        "interrogate",
+        "orient-repo",
+        "panel",
+        "plan-change",
+        "premortem",
+        "prepare-pr",
+        "prove",
+        "record-decision",
+        "refactor-safely",
+        "repo-hygiene-sweep",
+        "repo-review",
+        "respond-to-review",
+        "risk-review",
+        "self-refute",
+        "simplify",
+        "split-change",
+        "triage",
+        "write-doc",
+        "write-tests"
+      ],
+      "selection": "full",
+      "terse": false
+    }
+  }
+}

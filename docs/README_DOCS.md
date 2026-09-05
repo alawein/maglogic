@@ -12,7 +12,7 @@ sla: none
 
 ## Overview
 
-MagLogic is a comprehensive cross-platform computational magnetism framework for nanomagnetic logic device simulation and analysis — implemented in Python with OOMMF and MuMax3 integration.
+MagLogic is a cross-platform computational magnetism framework for nanomagnetic logic device simulation and analysis, implemented in Python with OOMMF and MuMax3 integration.
 
 ### Subject Areas
 

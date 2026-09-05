@@ -371,3 +371,5 @@ htmlcov/
 *.keystore
 id_rsa*
 .claude.json
+# Track the safe container configuration template.
+!docker/.env.example

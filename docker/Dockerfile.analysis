@@ -292,8 +292,8 @@ PYTHON_SCRIPT
             --no-browser \
             --allow-root \
             --notebook-dir=/workspace \
-            --ServerApp.token='' \
-            --ServerApp.password='' \
+            --ServerApp.token="${JUPYTER_TOKEN:?Set JUPYTER_TOKEN}" \
+            --ServerApp.password="" \
             --ServerApp.allow_origin='*'
         ;;
         

@@ -24,12 +24,12 @@ services:
       - OOMMF_ROOT=/opt/oommf
       - PYTHONPATH=/home/oommf/python
       - JUPYTER_ENABLE_LAB=yes
-      - JUPYTER_TOKEN=${JUPYTER_TOKEN:-maglogic2025}
+      - JUPYTER_TOKEN=${JUPYTER_TOKEN:?Set JUPYTER_TOKEN in docker/.env}
       
     # Port mapping
     ports:
-      - "8888:8888"  # Jupyter Lab
-      - "8080:8080"  # Additional web interface
+      - "127.0.0.1:8888:8888"  # Jupyter Lab
+      - "127.0.0.1:8080:8080"  # Additional web interface
       
     # Volume mounts for persistent data
     volumes:
@@ -95,12 +95,12 @@ services:
       - NVIDIA_DRIVER_CAPABILITIES=compute,utility
       - CUDA_VISIBLE_DEVICES=0
       - PYTHONPATH=/home/mumax3/python
-      - JUPYTER_TOKEN=${JUPYTER_TOKEN:-maglogic2025}
+      - JUPYTER_TOKEN=${JUPYTER_TOKEN:?Set JUPYTER_TOKEN in docker/.env}
       
     # Port mapping
     ports:
-      - "8889:8888"  # Jupyter Lab (different port to avoid conflicts)
-      - "8081:8080"  # Additional web interface
+      - "127.0.0.1:8889:8888"  # Jupyter Lab (different port to avoid conflicts)
+      - "127.0.0.1:8081:8080"  # Additional web interface
       
     # Volume mounts
     volumes:
@@ -162,15 +162,15 @@ services:
     # Environment
     environment:
       - JUPYTER_ENABLE_LAB=yes
-      - JUPYTER_TOKEN=${JUPYTER_TOKEN:-maglogic2025}
+      - JUPYTER_TOKEN=${JUPYTER_TOKEN:?Set JUPYTER_TOKEN in docker/.env}
       - PYTHONPATH=/app/python
       - MPLBACKEND=Agg  # For headless matplotlib
       
     # Port mapping
     ports:
-      - "8890:8888"  # Jupyter Lab
-      - "8050:8050"  # Plotly Dash apps
-      - "8501:8501"  # Streamlit apps
+      - "127.0.0.1:8890:8888"  # Jupyter Lab
+      - "127.0.0.1:8050:8050"  # Plotly Dash apps
+      - "127.0.0.1:8501:8501"  # Streamlit apps
       
     # Volume mounts
     volumes:
@@ -221,7 +221,7 @@ services:
     
     # Port mapping
     ports:
-      - "8000:8000"  # MkDocs development server
+      - "127.0.0.1:8000:8000"  # MkDocs development server
       
     # Volume mounts
     volumes:
@@ -259,7 +259,7 @@ services:
     environment:
       - POSTGRES_DB=maglogic
       - POSTGRES_USER=maglogic
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-maglogic2025}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in docker/.env}
       
     # Volume for persistent data
     volumes:
@@ -287,7 +287,7 @@ services:
     profiles:
       - development
     ports:
-      - "5432:5432"
+      - "127.0.0.1:5432:5432"
 
   # Redis cache for simulation results
   cache:
@@ -332,7 +332,7 @@ services:
       
     # Port mapping
     ports:
-      - "9090:9090"
+      - "127.0.0.1:9090:9090"
       
     # Command
     command:
@@ -400,8 +400,10 @@ networks:
     internal: true
 
 # Configuration for different deployment profiles
+# Security: copy docker/.env.example to docker/.env and set unique non-empty values.
+# Ports bind to localhost by default; do not expose them without reviewing authentication.
 # Usage examples:
-#   docker-compose up                          # Basic services (OOMMF + Analysis)
+#   docker compose --env-file .env up                          # Basic services (OOMMF + Analysis)
 #   docker-compose --profile gpu up           # Include GPU services (MuMax3)
 #   docker-compose --profile development up   # Include database
 #   docker-compose --profile monitoring up    # Include monitoring

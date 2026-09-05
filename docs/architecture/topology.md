@@ -28,7 +28,7 @@ maglogic/
 │   ├── basic/
 │   └── triangles/
 ├── matlab/                      # MATLAB reference implementations
-├── examples/                    # demo scripts (e.g. demo_truth_table.py)
+├── examples/                    # demo scripts (e.g. run_basic_triangle.py)
 ├── docker/                      # Docker Compose reproducible environment
 ├── scripts/                     # validate-structure.py and maintenance helpers
 ├── reports/                     # exported report artifacts

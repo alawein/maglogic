@@ -5,8 +5,8 @@ sync: none
 sla: none
 authority: canonical
 audience: [agents, contributors, maintainers]
-last_updated: 2026-04-15
-last-verified: 2026-04-15
+last_updated: 2026-09-06
+last-verified: 2026-09-06
 ---
 
 # AGENTS: MagLogic
@@ -25,6 +25,10 @@ Python, OOMMF, MuMax3, and MATLAB.
 - `matlab/`: reference implementation surface
 - `examples/`: runnable demos
 
+- `docker/`: reproducible environment definitions
+
+- `docs/`: repo-local theory, API, and structure documentation
+
 ## Governance rules
 
 1. Keep the Python package rooted at `python/maglogic/`.
@@ -32,6 +36,26 @@ Python, OOMMF, MuMax3, and MATLAB.
 3. Treat OOMMF and MuMax3 inputs as reference assets, not casual scratch files.
 4. Preserve both solver backends where a feature claims to support them.
 5. Comments and docs should explain solver assumptions and geometry choices.
+
+6. GPU-oriented workflows must still document or preserve CPU fallback paths.
+
+7. When Python behavior changes, keep examples and reference implementations from drifting silently.
+
+8. Update citation metadata for release-grade scientific changes.
+
+9. Do not casually modify reference `.mif` or `.mx3` inputs.
+
+## Simplicity defaults
+
+- Make the smallest change that satisfies the acceptance criteria.
+- Prefer direct functions and plain data structures.
+- No class when a function suffices. No framework for one implementation.
+- No shared abstraction before real duplication exists.
+- Prefer the standard library or an existing dependency.
+- Avoid factories, registries, adapters, plugins, and config layers without multiple real consumers.
+- Keep control flow direct. Use early returns when clearer. Keep errors explicit.
+- Comments explain invariants, assumptions, and failure modes. Delete dead code instead of commenting it out.
+- Keep pull requests single-purpose. Stop when tests and acceptance criteria pass. Do not rewrite adjacent working code without a stated need.
 
 ## Code conventions
 
